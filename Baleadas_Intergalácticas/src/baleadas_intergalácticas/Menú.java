@@ -11,6 +11,27 @@ package baleadas_intergalácticas;
  */
 public class Menú {
     
-    // TDA pila
+    // TDA pila de platos
+    private List lista;
+
+    public Menú() {
+        
+    }
+
+    public Menú(Object value) {
+        lista = new List(value);
+    }
+ 
+    public List getLista() {
+        return lista;
+    }
+
+    public void setLista(List lista) {
+        this.lista = lista;
+    }
+    
+    
+    
+    
     
 }

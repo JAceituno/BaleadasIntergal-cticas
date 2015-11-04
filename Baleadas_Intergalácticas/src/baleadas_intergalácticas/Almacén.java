@@ -11,5 +11,28 @@ package baleadas_intergalácticas;
  */
 public class Almacén {
  
-    // TDA lista
+    // TDA lista de ingredientes
+    private List list;
+
+    public Almacén(Object value) {
+        this.list = new List(value);
+    }
+
+    public Almacén() {
+        list = new List();
+    }
+
+    public List getList() {
+        return list;
+    }
+
+    public void setList(List list) {
+        this.list = list;
+    }
+    
+    
+    
+    
+    
+    
 }
