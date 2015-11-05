@@ -27,6 +27,11 @@ public class StartScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_menu = new javax.swing.JDialog();
+        jd_ingredients = new javax.swing.JDialog();
+        jd_order = new javax.swing.JDialog();
+        jd_rrhh = new javax.swing.JDialog();
+        jd_cierre = new javax.swing.JDialog();
         panel_buttons = new javax.swing.JPanel();
         cmd_menu = new javax.swing.JButton();
         cmd_ingredients = new javax.swing.JButton();
@@ -34,6 +39,61 @@ public class StartScreen extends javax.swing.JFrame {
         cmd_rrhh = new javax.swing.JButton();
         cmd_cierre = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jd_menuLayout = new javax.swing.GroupLayout(jd_menu.getContentPane());
+        jd_menu.getContentPane().setLayout(jd_menuLayout);
+        jd_menuLayout.setHorizontalGroup(
+            jd_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_menuLayout.setVerticalGroup(
+            jd_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jd_ingredientsLayout = new javax.swing.GroupLayout(jd_ingredients.getContentPane());
+        jd_ingredients.getContentPane().setLayout(jd_ingredientsLayout);
+        jd_ingredientsLayout.setHorizontalGroup(
+            jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_ingredientsLayout.setVerticalGroup(
+            jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jd_orderLayout = new javax.swing.GroupLayout(jd_order.getContentPane());
+        jd_order.getContentPane().setLayout(jd_orderLayout);
+        jd_orderLayout.setHorizontalGroup(
+            jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_orderLayout.setVerticalGroup(
+            jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jd_rrhhLayout = new javax.swing.GroupLayout(jd_rrhh.getContentPane());
+        jd_rrhh.getContentPane().setLayout(jd_rrhhLayout);
+        jd_rrhhLayout.setHorizontalGroup(
+            jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_rrhhLayout.setVerticalGroup(
+            jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jd_cierreLayout = new javax.swing.GroupLayout(jd_cierre.getContentPane());
+        jd_cierre.getContentPane().setLayout(jd_cierreLayout);
+        jd_cierreLayout.setHorizontalGroup(
+            jd_cierreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_cierreLayout.setVerticalGroup(
+            jd_cierreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,9 +145,9 @@ public class StartScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panel_buttons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,6 +200,11 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JButton cmd_order;
     private javax.swing.JButton cmd_rrhh;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JDialog jd_cierre;
+    private javax.swing.JDialog jd_ingredients;
+    private javax.swing.JDialog jd_menu;
+    private javax.swing.JDialog jd_order;
+    private javax.swing.JDialog jd_rrhh;
     private javax.swing.JPanel panel_buttons;
     // End of variables declaration//GEN-END:variables
 }
