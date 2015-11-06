@@ -14,9 +14,9 @@ public class Ingrediente {
     private String nombre;
     private String descripción;
     private String medida;
-    private int cantidad;
+    private double cantidad;
 
-    public Ingrediente(String nombre, int cantidad, String medida, String descripción) {
+    public Ingrediente(String nombre, double cantidad, String medida, String descripción) {
         this.nombre = nombre;
         this.descripción = descripción;
         this.medida = medida;
@@ -47,11 +47,11 @@ public class Ingrediente {
         this.medida = medida;
     }
 
-    public int getCantidad() {
+    public double getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
     

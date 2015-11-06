@@ -5,6 +5,8 @@
  */
 package baleadas_intergalácticas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author megarokr
@@ -16,6 +18,7 @@ public class StartScreen extends javax.swing.JFrame {
      */
     public StartScreen() {
         initComponents();
+        
     }
 
     /**
@@ -140,6 +143,11 @@ public class StartScreen extends javax.swing.JFrame {
         jScrollPane1.setViewportView(ta_descripcion_ingredientes);
 
         agregar_ingrediente.setText("Agregar");
+        agregar_ingrediente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                agregar_ingredienteMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_ingredientsLayout = new javax.swing.GroupLayout(jd_ingredients.getContentPane());
         jd_ingredients.getContentPane().setLayout(jd_ingredientsLayout);
@@ -230,6 +238,11 @@ public class StartScreen extends javax.swing.JFrame {
         cmd_menu.setText("Menú");
 
         cmd_ingredients.setText("Ingredientes");
+        cmd_ingredients.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmd_ingredientsMouseClicked(evt);
+            }
+        });
 
         cmd_order.setText("Ordenar");
 
@@ -288,6 +301,43 @@ public class StartScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmd_ingredientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_ingredientsMouseClicked
+        openDialog(jd_ingredients);
+        this.setVisible(false);
+    }//GEN-LAST:event_cmd_ingredientsMouseClicked
+
+    private void agregar_ingredienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregar_ingredienteMouseClicked
+        String nombre, medida, descripcion;
+        double cantidad;
+        
+        if(tf_nombreIngrediente.getText() != null && tf_medida_ingrediente.getText() != null && (Double)sp_cantidadIngrediente.getValue() >= 0 && ta_descripcion_ingredientes.getText() != null){        
+            nombre = tf_nombreIngrediente.getText();
+            tf_nombreIngrediente.setText("");
+            medida = tf_medida_ingrediente.getText();
+            tf_medida_ingrediente.setText("");
+            cantidad = (Double)sp_cantidadIngrediente.getValue();
+            sp_cantidadIngrediente.setValue(0);
+            descripcion = ta_descripcion_ingredientes.getText();
+            ta_descripcion_ingredientes.setText("");
+            
+            if(ingredients.size() > 0){
+                for (int i = ingredients.size()-1; i >= 0; --i) {
+                    if(((Ingrediente)((Stack)ingredients.elementAt(i).getValue()).peek()).getNombre().equalsIgnoreCase(nombre)){
+                        ((Stack)ingredients.elementAt(i).getValue()).push_back(new Ingrediente(nombre, cantidad, medida, descripcion));
+                    }
+                    else{
+                        ingredients.push_back(new Stack(new Ingrediente(nombre, cantidad, medida, descripcion)));
+                    }
+                }
+            } else {
+                ingredients.push_back(new Stack(new Ingrediente(nombre, cantidad, medida, descripcion)));
+            }
+                
+        } else {
+            JOptionPane.showMessageDialog(jd_ingredients, "Hay un campo en blanco.", "Campo en blanco", JOptionPane.ERROR_MESSAGE, null);
+        }
+    }//GEN-LAST:event_agregar_ingredienteMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -322,6 +372,13 @@ public class StartScreen extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void openDialog(javax.swing.JDialog jd_ventana){
+        jd_ventana.setLocationRelativeTo(null);
+        jd_ventana.setModal(true);
+        jd_ventana.setVisible(true);
+        jd_ventana.pack();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregar_ingrediente;
@@ -353,4 +410,6 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JTextField tf_medida_ingrediente;
     private javax.swing.JTextField tf_nombreIngrediente;
     // End of variables declaration//GEN-END:variables
+    private List ingredients = new List(new Stack());
+
 }
