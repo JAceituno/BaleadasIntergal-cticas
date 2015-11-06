@@ -13,10 +13,14 @@ public class Ingrediente {
     
     private String nombre;
     private String descripción;
+    private String medida;
+    private int cantidad;
 
-    public Ingrediente(String nombre, String descripción) {
+    public Ingrediente(String nombre, int cantidad, String medida, String descripción) {
         this.nombre = nombre;
         this.descripción = descripción;
+        this.medida = medida;
+        this.cantidad = cantidad;
     }
 
     public String getNombre() {
@@ -33,8 +37,27 @@ public class Ingrediente {
 
     public void setDescripción(String descripción) {
         this.descripción = descripción;
+    }    
+    
+    public String getMedida() {
+        return medida;
+    }
+
+    public void setMedida(String medida) {
+        this.medida = medida;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
     
-    
+    @Override
+    public String toString(){
+        return nombre + " " + cantidad + " " + medida;
+    }
     
 }
