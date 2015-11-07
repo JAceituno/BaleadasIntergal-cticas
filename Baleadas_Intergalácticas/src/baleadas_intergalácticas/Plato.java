@@ -16,30 +16,29 @@ public class Plato {
     private double precio;
     private int preparacion;
     // lista de ingredientes TDA pila
-    private Stack stack;
+    private List ingredientes = new List();
 
     public Plato(String nombre, String descripcion, double precio, int preparacion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.preparacion = preparacion;
-        this.stack = new Stack();
     }
-    
+    /*
     public Plato(String nombre, String descripcion, double precio, int preparacion, Object value) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.preparacion = preparacion;
-        this.stack = new Stack(value);
+        this.ingredientes = new Stack(value);
     }
     
     
 
     public Plato() {
-        this.stack = new Stack();
+        this.ingredientes = new Stack();
     }
-
+    */
     public String getNombre() {
         return nombre;
     }
@@ -72,15 +71,17 @@ public class Plato {
         this.preparacion = preparacion;
     }
 
-    public Stack getStack() {
-        return stack;
+    public List getIngredientes() {
+        return ingredientes;
     }
 
-    public void setStack(Stack stack) {
-        this.stack = stack;
+    public void setIngredientes(List ingredientes) {
+        this.ingredientes = ingredientes;
     }
     
-    
+    public void addIngrediente(Ingrediente ingrediente){
+        this.ingredientes.push_back(ingrediente);
+    }
     
     
 }

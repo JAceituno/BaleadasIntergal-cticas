@@ -17,10 +17,6 @@ public class Menú {
     public Menú() {
         
     }
-
-    public Menú(Object value) {
-        lista = new List(value);
-    }
  
     public List getLista() {
         return lista;
@@ -30,8 +26,9 @@ public class Menú {
         this.lista = lista;
     }
     
-    
-    
+    public void addPlato(Plato plato){
+        lista.push_back(plato);
+    }   
     
     
 }
