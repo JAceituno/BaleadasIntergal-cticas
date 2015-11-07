@@ -18,8 +18,8 @@ public class StartScreen extends javax.swing.JFrame {
      * Creates new form StartScreen
      */
     public StartScreen() {
-        initComponents();
-        
+        initComponents();   
+        this.setLocationRelativeTo(null);        
     }
 
     /**
@@ -362,12 +362,12 @@ public class StartScreen extends javax.swing.JFrame {
             ta_descripcion_ingredientes.setText("");
             
             if(almacen.size() > 0){
-                for (int i = almacen.size()-1; i >= 0; --i) {
+                for (int i = 0; i < almacen.size(); ++i) {
                     if(((Ingrediente)((Stack)almacen.elementAt(i).getValue()).peek()).getNombre().equalsIgnoreCase(nombre)){
                         ((Stack)almacen.elementAt(i).getValue()).push_back(new Ingrediente(nombre, cantidad, medida, descripcion));
                         break;
                     }
-                    else{
+                    else if(i == almacen.size()-1){
                         almacen.push_back(new Stack(new Ingrediente(nombre, cantidad, medida, descripcion)));
                         break;
                     }

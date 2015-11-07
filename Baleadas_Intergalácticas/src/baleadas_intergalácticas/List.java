@@ -47,7 +47,7 @@ public class List {
                 }
             }
         }
-        if(posicion == 0){
+        else if(posicion == 0){
             if(head != null){
                 Node temp = head;
                 setHead(new Node(valor));
