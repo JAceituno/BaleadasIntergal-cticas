@@ -32,89 +32,87 @@ public class StartScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jd_menu = new javax.swing.JDialog();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        tp_menu_options = new javax.swing.JTabbedPane();
+        pane_lista_ordenes = new javax.swing.JPanel();
+        pane_agregar_menu = new javax.swing.JPanel();
+        pane_modificar_menu = new javax.swing.JPanel();
+        pane_eliminar_menu = new javax.swing.JPanel();
         jd_ingredients = new javax.swing.JDialog();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lbl_nombre_ingrediente = new javax.swing.JLabel();
+        lbl_cantidad_ingredientes = new javax.swing.JLabel();
+        lbl_medida_ingredientes = new javax.swing.JLabel();
+        lbl_descripcion_ingredientes = new javax.swing.JLabel();
         tf_nombreIngrediente = new javax.swing.JTextField();
         sp_cantidadIngrediente = new javax.swing.JSpinner();
         tf_medida_ingrediente = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         ta_descripcion_ingredientes = new javax.swing.JTextArea();
         agregar_ingrediente = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         listaTemp = new javax.swing.JList();
         jButton2 = new javax.swing.JButton();
         jd_order = new javax.swing.JDialog();
         jd_rrhh = new javax.swing.JDialog();
         jd_cierre = new javax.swing.JDialog();
-        jTextField2 = new javax.swing.JTextField();
         panel_buttons = new javax.swing.JPanel();
         cmd_menu = new javax.swing.JButton();
         cmd_ingredients = new javax.swing.JButton();
         cmd_order = new javax.swing.JButton();
         cmd_rrhh = new javax.swing.JButton();
         cmd_cierre = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lbl_meme = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pane_lista_ordenesLayout = new javax.swing.GroupLayout(pane_lista_ordenes);
+        pane_lista_ordenes.setLayout(pane_lista_ordenesLayout);
+        pane_lista_ordenesLayout.setHorizontalGroup(
+            pane_lista_ordenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 541, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pane_lista_ordenesLayout.setVerticalGroup(
+            pane_lista_ordenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 324, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Lista de Órdenes", jPanel1);
+        tp_menu_options.addTab("Lista de Órdenes", pane_lista_ordenes);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pane_agregar_menuLayout = new javax.swing.GroupLayout(pane_agregar_menu);
+        pane_agregar_menu.setLayout(pane_agregar_menuLayout);
+        pane_agregar_menuLayout.setHorizontalGroup(
+            pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 541, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pane_agregar_menuLayout.setVerticalGroup(
+            pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 324, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Agregar", jPanel2);
+        tp_menu_options.addTab("Agregar", pane_agregar_menu);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pane_modificar_menuLayout = new javax.swing.GroupLayout(pane_modificar_menu);
+        pane_modificar_menu.setLayout(pane_modificar_menuLayout);
+        pane_modificar_menuLayout.setHorizontalGroup(
+            pane_modificar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 541, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pane_modificar_menuLayout.setVerticalGroup(
+            pane_modificar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 324, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Modificar", jPanel3);
+        tp_menu_options.addTab("Modificar", pane_modificar_menu);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pane_eliminar_menuLayout = new javax.swing.GroupLayout(pane_eliminar_menu);
+        pane_eliminar_menu.setLayout(pane_eliminar_menuLayout);
+        pane_eliminar_menuLayout.setHorizontalGroup(
+            pane_eliminar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 541, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pane_eliminar_menuLayout.setVerticalGroup(
+            pane_eliminar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 324, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Eliminar", jPanel4);
+        tp_menu_options.addTab("Eliminar", pane_eliminar_menu);
 
         javax.swing.GroupLayout jd_menuLayout = new javax.swing.GroupLayout(jd_menu.getContentPane());
         jd_menu.getContentPane().setLayout(jd_menuLayout);
@@ -122,30 +120,36 @@ public class StartScreen extends javax.swing.JFrame {
             jd_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_menuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(tp_menu_options)
                 .addContainerGap())
         );
         jd_menuLayout.setVerticalGroup(
             jd_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_menuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tp_menu_options, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jd_ingredients.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        jd_ingredients.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jd_ingredients.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jd_ingredients.setMinimumSize(new java.awt.Dimension(720, 320));
         jd_ingredients.setPreferredSize(new java.awt.Dimension(720, 320));
+        jd_ingredients.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                jd_ingredientsWindowClosing(evt);
+            }
+        });
 
-        jLabel2.setText("Nombre: ");
+        lbl_nombre_ingrediente.setText("Nombre: ");
 
-        jLabel3.setText("Cantidad: ");
+        lbl_cantidad_ingredientes.setText("Cantidad: ");
 
-        jLabel4.setText("Medida:");
+        lbl_medida_ingredientes.setText("Medida:");
 
-        jLabel5.setText("Descripción: ");
+        lbl_descripcion_ingredientes.setText("Descripción: ");
 
-        sp_cantidadIngrediente.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), null, null, Double.valueOf(0.5d)));
+        sp_cantidadIngrediente.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(1.0d), Double.valueOf(0.5d), null, Double.valueOf(0.5d)));
 
         ta_descripcion_ingredientes.setColumns(20);
         ta_descripcion_ingredientes.setRows(5);
@@ -155,13 +159,6 @@ public class StartScreen extends javax.swing.JFrame {
         agregar_ingrediente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 agregar_ingredienteMouseClicked(evt);
-            }
-        });
-
-        jButton1.setText("Close");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -183,24 +180,21 @@ public class StartScreen extends javax.swing.JFrame {
                     .addGroup(jd_ingredientsLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(lbl_nombre_ingrediente)
+                            .addComponent(lbl_cantidad_ingredientes)
+                            .addComponent(lbl_medida_ingredientes)
+                            .addComponent(lbl_descripcion_ingredientes))
                         .addGap(23, 23, 23)
                         .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jd_ingredientsLayout.createSequentialGroup()
-                                .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tf_nombreIngrediente)
-                                    .addComponent(sp_cantidadIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tf_medida_ingrediente, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
-                                .addGap(55, 55, 55)
-                                .addComponent(jButton1))))
+                            .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(tf_nombreIngrediente)
+                                .addComponent(sp_cantidadIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tf_medida_ingrediente, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))))
                     .addGroup(jd_ingredientsLayout.createSequentialGroup()
                         .addGap(147, 147, 147)
                         .addComponent(agregar_ingrediente)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
@@ -211,22 +205,21 @@ public class StartScreen extends javax.swing.JFrame {
             .addGroup(jd_ingredientsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_nombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(lbl_nombre_ingrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_nombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_ingredientsLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
+                            .addComponent(lbl_cantidad_ingredientes)
                             .addComponent(sp_cantidadIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
+                            .addComponent(lbl_medida_ingredientes)
                             .addComponent(tf_medida_ingrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
+                            .addComponent(lbl_descripcion_ingredientes)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(agregar_ingrediente))
@@ -270,8 +263,6 @@ public class StartScreen extends javax.swing.JFrame {
             jd_cierreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
-
-        jTextField2.setText("jTextField2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -320,7 +311,7 @@ public class StartScreen extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/baleadas_intergalácticas/resources/baleadas.jpg"))); // NOI18N
+        lbl_meme.setIcon(new javax.swing.ImageIcon(getClass().getResource("/baleadas_intergalácticas/resources/baleadas.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -329,13 +320,13 @@ public class StartScreen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panel_buttons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
+                .addComponent(lbl_meme)
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panel_buttons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lbl_meme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -383,11 +374,6 @@ public class StartScreen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_agregar_ingredienteMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.jd_ingredients.setVisible(false);
-        this.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         DefaultListModel model = new DefaultListModel();
         Ingrediente ingrediente;
@@ -404,6 +390,11 @@ public class StartScreen extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jd_ingredientsWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jd_ingredientsWindowClosing
+        jd_ingredients.dispose(); //Que malote
+        this.setVisible(true);
+    }//GEN-LAST:event_jd_ingredientsWindowClosing
 
     /**
      * @param args the command line arguments
@@ -455,32 +446,30 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JButton cmd_menu;
     private javax.swing.JButton cmd_order;
     private javax.swing.JButton cmd_rrhh;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JDialog jd_cierre;
     private javax.swing.JDialog jd_ingredients;
     private javax.swing.JDialog jd_menu;
     private javax.swing.JDialog jd_order;
     private javax.swing.JDialog jd_rrhh;
+    private javax.swing.JLabel lbl_cantidad_ingredientes;
+    private javax.swing.JLabel lbl_descripcion_ingredientes;
+    private javax.swing.JLabel lbl_medida_ingredientes;
+    private javax.swing.JLabel lbl_meme;
+    private javax.swing.JLabel lbl_nombre_ingrediente;
     private javax.swing.JList listaTemp;
+    private javax.swing.JPanel pane_agregar_menu;
+    private javax.swing.JPanel pane_eliminar_menu;
+    private javax.swing.JPanel pane_lista_ordenes;
+    private javax.swing.JPanel pane_modificar_menu;
     private javax.swing.JPanel panel_buttons;
     private javax.swing.JSpinner sp_cantidadIngrediente;
     private javax.swing.JTextArea ta_descripcion_ingredientes;
     private javax.swing.JTextField tf_medida_ingrediente;
     private javax.swing.JTextField tf_nombreIngrediente;
+    private javax.swing.JTabbedPane tp_menu_options;
     // End of variables declaration//GEN-END:variables
     private List almacen= new List();
 
