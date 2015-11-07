@@ -35,6 +35,24 @@ public class StartScreen extends javax.swing.JFrame {
         tp_menu_options = new javax.swing.JTabbedPane();
         pane_lista_ordenes = new javax.swing.JPanel();
         pane_agregar_menu = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
+        jButton3 = new javax.swing.JButton();
         pane_modificar_menu = new javax.swing.JPanel();
         pane_eliminar_menu = new javax.swing.JPanel();
         jd_ingredients = new javax.swing.JDialog();
@@ -70,20 +88,124 @@ public class StartScreen extends javax.swing.JFrame {
         );
         pane_lista_ordenesLayout.setVerticalGroup(
             pane_lista_ordenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 324, Short.MAX_VALUE)
+            .addGap(0, 366, Short.MAX_VALUE)
         );
 
         tp_menu_options.addTab("Lista de Órdenes", pane_lista_ordenes);
+
+        jLabel1.setText("Nombre:");
+
+        jLabel2.setText("Precio:");
+
+        jLabel3.setText("Tiempo de preparación:");
+
+        jLabel4.setText("Descripción:");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane3.setViewportView(jTextArea1);
+
+        jLabel5.setText("Ingredientes: ");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel6.setText("Cantidad: ");
+
+        jButton1.setText("---->");
+
+        jScrollPane4.setViewportView(jList1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox1, 0, 127, Short.MAX_VALUE)
+                            .addComponent(jTextField4)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(jButton1)))
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton1)))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        jButton3.setText("Agregar");
 
         javax.swing.GroupLayout pane_agregar_menuLayout = new javax.swing.GroupLayout(pane_agregar_menu);
         pane_agregar_menu.setLayout(pane_agregar_menuLayout);
         pane_agregar_menuLayout.setHorizontalGroup(
             pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 541, Short.MAX_VALUE)
+            .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                        .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1)
+                            .addComponent(jTextField2)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                        .addGap(47, 47, 47)
+                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pane_agregar_menuLayout.setVerticalGroup(
             pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 324, Short.MAX_VALUE)
+            .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addGap(18, 18, 18)
+                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         tp_menu_options.addTab("Agregar", pane_agregar_menu);
@@ -96,7 +218,7 @@ public class StartScreen extends javax.swing.JFrame {
         );
         pane_modificar_menuLayout.setVerticalGroup(
             pane_modificar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 324, Short.MAX_VALUE)
+            .addGap(0, 366, Short.MAX_VALUE)
         );
 
         tp_menu_options.addTab("Modificar", pane_modificar_menu);
@@ -109,7 +231,7 @@ public class StartScreen extends javax.swing.JFrame {
         );
         pane_eliminar_menuLayout.setVerticalGroup(
             pane_eliminar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 324, Short.MAX_VALUE)
+            .addGap(0, 366, Short.MAX_VALUE)
         );
 
         tp_menu_options.addTab("Eliminar", pane_eliminar_menu);
@@ -127,14 +249,13 @@ public class StartScreen extends javax.swing.JFrame {
             jd_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_menuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tp_menu_options, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(tp_menu_options)
+                .addContainerGap())
         );
 
         jd_ingredients.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jd_ingredients.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jd_ingredients.setMinimumSize(new java.awt.Dimension(720, 320));
-        jd_ingredients.setPreferredSize(new java.awt.Dimension(720, 320));
         jd_ingredients.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 jd_ingredientsWindowClosing(evt);
@@ -267,6 +388,11 @@ public class StartScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         cmd_menu.setText("Menú");
+        cmd_menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmd_menuMouseClicked(evt);
+            }
+        });
 
         cmd_ingredients.setText("Ingredientes");
         cmd_ingredients.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -385,8 +511,7 @@ public class StartScreen extends javax.swing.JFrame {
             string = ingrediente.toString();
             model.add(i, string);
         }
-        this.listaTemp.setModel(model);
-        
+        this.listaTemp.setModel(model);       
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -395,6 +520,11 @@ public class StartScreen extends javax.swing.JFrame {
         jd_ingredients.dispose(); //Que malote
         this.setVisible(true);
     }//GEN-LAST:event_jd_ingredientsWindowClosing
+
+    private void cmd_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_menuMouseClicked
+        this.setVisible(false);
+        openDialog(jd_menu);
+    }//GEN-LAST:event_cmd_menuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -407,7 +537,7 @@ public class StartScreen extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("GTK+".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -432,7 +562,7 @@ public class StartScreen extends javax.swing.JFrame {
     }
     
     private void openDialog(javax.swing.JDialog jd_ventana){
-        jd_ventana.setLocationRelativeTo(this);
+        jd_ventana.setLocationRelativeTo(null);
         jd_ventana.setModal(true);
         jd_ventana.pack();
         jd_ventana.setVisible(true);
@@ -446,9 +576,27 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JButton cmd_menu;
     private javax.swing.JButton cmd_order;
     private javax.swing.JButton cmd_rrhh;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JList jList1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JDialog jd_cierre;
     private javax.swing.JDialog jd_ingredients;
     private javax.swing.JDialog jd_menu;
