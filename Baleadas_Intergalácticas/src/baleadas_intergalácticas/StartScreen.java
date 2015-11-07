@@ -327,7 +327,7 @@ public class StartScreen extends javax.swing.JFrame {
     private void agregar_ingredienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregar_ingredienteMouseClicked
         String nombre, medida, descripcion;
         double cantidad;
-        
+
         if(tf_nombreIngrediente.getText() != null && tf_medida_ingrediente.getText() != null && (Double)sp_cantidadIngrediente.getValue() >= 0 && ta_descripcion_ingredientes.getText() != null){        
             nombre = tf_nombreIngrediente.getText();
             tf_nombreIngrediente.setText("");
@@ -338,18 +338,20 @@ public class StartScreen extends javax.swing.JFrame {
             descripcion = ta_descripcion_ingredientes.getText();
             ta_descripcion_ingredientes.setText("");
             
-            if(ingredients.size() > 0){
-                for (int i = ingredients.size()-1; i >= 0; --i) {
-                    if(((Ingrediente)((Stack)ingredients.elementAt(i).getValue()).peek()).getNombre().equalsIgnoreCase(nombre)){
-                        ((Stack)ingredients.elementAt(i).getValue()).push_back(new Ingrediente(nombre, cantidad, medida, descripcion));
+            if(almacen.size() > 0){
+                for (int i = almacen.size()-1; i >= 0; --i) {
+                    if(((Ingrediente)((Stack)almacen.elementAt(i).getValue()).peek()).getNombre().equalsIgnoreCase(nombre)){
+                        ((Stack)almacen.elementAt(i).getValue()).push_back(new Ingrediente(nombre, cantidad, medida, descripcion));
                     }
                     else{
-                        ingredients.push_back(new Stack(new Ingrediente(nombre, cantidad, medida, descripcion)));
+                        almacen.push_back(new Stack(new Ingrediente(nombre, cantidad, medida, descripcion)));
                     }
                 }
             } else {
-                ingredients.push_back(new Stack(new Ingrediente(nombre, cantidad, medida, descripcion)));
+                almacen.push_back(new Stack(new Ingrediente(nombre, cantidad, medida, descripcion)));
             }
+            
+            
                 
         } else {
             JOptionPane.showMessageDialog(jd_ingredients, "Hay un campo en blanco.", "Campo en blanco", JOptionPane.ERROR_MESSAGE, null);
@@ -435,6 +437,6 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JTextField tf_medida_ingrediente;
     private javax.swing.JTextField tf_nombreIngrediente;
     // End of variables declaration//GEN-END:variables
-    private List ingredients = new List(new Stack());
+    private List almacen= new List();
 
 }
