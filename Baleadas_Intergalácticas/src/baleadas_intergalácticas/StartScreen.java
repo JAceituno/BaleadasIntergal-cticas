@@ -474,7 +474,7 @@ public class StartScreen extends javax.swing.JFrame {
             medida = tf_medida_ingrediente.getText();
             tf_medida_ingrediente.setText("");
             cantidad = (Double)sp_cantidadIngrediente.getValue();
-            sp_cantidadIngrediente.setValue(0);
+            sp_cantidadIngrediente.setValue(0.5);
             descripcion = ta_descripcion_ingredientes.getText();
             ta_descripcion_ingredientes.setText("");
             
