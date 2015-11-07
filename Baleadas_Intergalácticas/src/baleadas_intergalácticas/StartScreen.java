@@ -5,6 +5,7 @@
  */
 package baleadas_intergalácticas;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -48,6 +49,9 @@ public class StartScreen extends javax.swing.JFrame {
         ta_descripcion_ingredientes = new javax.swing.JTextArea();
         agregar_ingrediente = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listaTemp = new javax.swing.JList();
+        jButton2 = new javax.swing.JButton();
         jd_order = new javax.swing.JDialog();
         jd_rrhh = new javax.swing.JDialog();
         jd_cierre = new javax.swing.JDialog();
@@ -130,8 +134,8 @@ public class StartScreen extends javax.swing.JFrame {
         );
 
         jd_ingredients.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        jd_ingredients.setMinimumSize(new java.awt.Dimension(400, 320));
-        jd_ingredients.setPreferredSize(new java.awt.Dimension(400, 320));
+        jd_ingredients.setMinimumSize(new java.awt.Dimension(720, 320));
+        jd_ingredients.setPreferredSize(new java.awt.Dimension(720, 320));
 
         jLabel2.setText("Nombre: ");
 
@@ -161,34 +165,46 @@ public class StartScreen extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane2.setViewportView(listaTemp);
+
+        jButton2.setText("refresh");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_ingredientsLayout = new javax.swing.GroupLayout(jd_ingredients.getContentPane());
         jd_ingredients.getContentPane().setLayout(jd_ingredientsLayout);
         jd_ingredientsLayout.setHorizontalGroup(
             jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_ingredientsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(23, 23, 23)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ingredientsLayout.createSequentialGroup()
                 .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_ingredientsLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(68, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(23, 23, 23)
+                        .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jd_ingredientsLayout.createSequentialGroup()
+                                .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tf_nombreIngrediente)
+                                    .addComponent(sp_cantidadIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_medida_ingrediente, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+                                .addGap(55, 55, 55)
+                                .addComponent(jButton1))))
                     .addGroup(jd_ingredientsLayout.createSequentialGroup()
-                        .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tf_nombreIngrediente)
-                            .addComponent(sp_cantidadIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_medida_ingrediente, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(21, 21, 21))))
-            .addGroup(jd_ingredientsLayout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addComponent(agregar_ingrediente)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(147, 147, 147)
+                        .addComponent(agregar_ingrediente)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addContainerGap())
         );
         jd_ingredientsLayout.setVerticalGroup(
             jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,20 +214,27 @@ public class StartScreen extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tf_nombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(18, 18, 18)
-                .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(sp_cantidadIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(tf_medida_ingrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(agregar_ingrediente)
+                    .addGroup(jd_ingredientsLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(sp_cantidadIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(tf_medida_ingrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jd_ingredientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(agregar_ingrediente))
+                    .addGroup(jd_ingredientsLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -342,9 +365,11 @@ public class StartScreen extends javax.swing.JFrame {
                 for (int i = almacen.size()-1; i >= 0; --i) {
                     if(((Ingrediente)((Stack)almacen.elementAt(i).getValue()).peek()).getNombre().equalsIgnoreCase(nombre)){
                         ((Stack)almacen.elementAt(i).getValue()).push_back(new Ingrediente(nombre, cantidad, medida, descripcion));
+                        break;
                     }
                     else{
                         almacen.push_back(new Stack(new Ingrediente(nombre, cantidad, medida, descripcion)));
+                        break;
                     }
                 }
             } else {
@@ -362,6 +387,23 @@ public class StartScreen extends javax.swing.JFrame {
         this.jd_ingredients.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        DefaultListModel model = new DefaultListModel();
+        Ingrediente ingrediente;
+        Stack stack;
+        String string;
+        for (int i = 0; i < almacen.size(); i++) {
+            stack = (Stack)almacen.elementAt(i).getValue();
+            ingrediente = (Ingrediente)stack.peek();
+            string = ingrediente.toString();
+            model.add(i, string);
+        }
+        this.listaTemp.setModel(model);
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,6 +456,7 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JButton cmd_order;
     private javax.swing.JButton cmd_rrhh;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -424,6 +467,7 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JDialog jd_cierre;
@@ -431,6 +475,7 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JDialog jd_menu;
     private javax.swing.JDialog jd_order;
     private javax.swing.JDialog jd_rrhh;
+    private javax.swing.JList listaTemp;
     private javax.swing.JPanel panel_buttons;
     private javax.swing.JSpinner sp_cantidadIngrediente;
     private javax.swing.JTextArea ta_descripcion_ingredientes;
