@@ -277,7 +277,7 @@ public class StartScreen extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel7))))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 41, Short.MAX_VALUE))
         );
 
@@ -608,6 +608,8 @@ public class StartScreen extends javax.swing.JFrame {
             jt_tiempoPlato.setText("");
             jt_precioPlato.setText("");
             ingredientesTemp = new List();
+            
+            jl_ingredientesPlato.setModel(new DefaultListModel());
         }
         
         
