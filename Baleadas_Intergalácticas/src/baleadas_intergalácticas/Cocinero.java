@@ -7,6 +7,7 @@ package baleadas_intergalácticas;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,6 +35,8 @@ public class Cocinero extends Thread{
             }
             tiempo--;
         }
+        //Testeando thread
+        //JOptionPane.showMessageDialog(null, "Orden Completada/ Thread Finalizado");
     }
     
     private int tiempo;

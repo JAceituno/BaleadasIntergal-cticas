@@ -1293,6 +1293,16 @@ public class StartScreen extends javax.swing.JFrame {
                 Orden temp = new Orden(Integer.parseInt(tf_numOrden.getText()),tf_nombre_cliente.getText(),platosTemp);
                 int selection = JOptionPane.showConfirmDialog(this, temp.toString(), "Orden", JOptionPane.OK_CANCEL_OPTION);
                 
+                //Testeando thread
+                /*
+                int size=0;
+                for (int i = 0; i < temp.getList().size(); i++) {
+                    size += ((Plato)temp.getList().elementAt(i).getValue()).getPreparacion();
+                }
+                Thread Cocinero = new Thread(new Cocinero(size));
+                Cocinero.run();
+                */
+                
                 if(selection == JOptionPane.OK_OPTION){
                     ordenes.queue(temp);
                     tf_numOrden.setText("");
