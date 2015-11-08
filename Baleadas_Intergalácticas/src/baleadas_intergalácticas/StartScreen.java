@@ -5,8 +5,10 @@
  */
 package baleadas_intergalácticas;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -34,8 +36,9 @@ public class StartScreen extends javax.swing.JFrame {
         jd_menu = new javax.swing.JDialog();
         tp_menu_options = new javax.swing.JTabbedPane();
         pane_lista_ordenes = new javax.swing.JPanel();
-        pane_modificar_menu = new javax.swing.JPanel();
-        pane_eliminar_menu = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        JTableMenu = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
         pane_agregar_menu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -60,6 +63,34 @@ public class StartScreen extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jl_ingredientesPlato = new javax.swing.JList();
         jLabel10 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jt_nombrePlatoM = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jt_precioPlatoM = new javax.swing.JTextField();
+        jt_tiempoPlatoM = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jt_descripcionPlatoM = new javax.swing.JTextArea();
+        jLabel15 = new javax.swing.JLabel();
+        jt_ingredientePlatoM = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jt_cantidadIngredientesPlatoM = new javax.swing.JTextField();
+        jt_ingredienteMedidaM = new javax.swing.JTextField();
+        jt_ingredienteDescripcionM = new javax.swing.JTextField();
+        btn_agregarIngredienteM = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jl_ingredientesPlatoM = new javax.swing.JList();
+        jLabel20 = new javax.swing.JLabel();
+        jc_menu = new javax.swing.JComboBox();
+        btn_cargarPlato = new javax.swing.JButton();
+        btn_guardarCambiosPlatos = new javax.swing.JButton();
+        btn_eliminarIngrediente = new javax.swing.JButton();
+        btn_cargarIngrediente = new javax.swing.JButton();
         jd_ingredients = new javax.swing.JDialog();
         lbl_nombre_ingrediente = new javax.swing.JLabel();
         lbl_cantidad_ingredientes = new javax.swing.JLabel();
@@ -91,44 +122,68 @@ public class StartScreen extends javax.swing.JFrame {
             }
         });
 
+        tp_menu_options.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tp_menu_optionsStateChanged(evt);
+            }
+        });
+
+        JTableMenu.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Número de Plato", "Nombre", "Precio", "Tiempo de Preparación"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(JTableMenu);
+
+        jButton3.setText("Eliminar Elemento Seleccionado");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pane_lista_ordenesLayout = new javax.swing.GroupLayout(pane_lista_ordenes);
         pane_lista_ordenes.setLayout(pane_lista_ordenesLayout);
         pane_lista_ordenesLayout.setHorizontalGroup(
             pane_lista_ordenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 622, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pane_lista_ordenesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pane_lista_ordenesLayout.createSequentialGroup()
+                .addGap(199, 199, 199)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pane_lista_ordenesLayout.setVerticalGroup(
             pane_lista_ordenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 453, Short.MAX_VALUE)
+            .addGroup(pane_lista_ordenesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jButton3)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
-        tp_menu_options.addTab("Lista de Órdenes", pane_lista_ordenes);
-
-        javax.swing.GroupLayout pane_modificar_menuLayout = new javax.swing.GroupLayout(pane_modificar_menu);
-        pane_modificar_menu.setLayout(pane_modificar_menuLayout);
-        pane_modificar_menuLayout.setHorizontalGroup(
-            pane_modificar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 622, Short.MAX_VALUE)
-        );
-        pane_modificar_menuLayout.setVerticalGroup(
-            pane_modificar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 453, Short.MAX_VALUE)
-        );
-
-        tp_menu_options.addTab("Modificar", pane_modificar_menu);
-
-        javax.swing.GroupLayout pane_eliminar_menuLayout = new javax.swing.GroupLayout(pane_eliminar_menu);
-        pane_eliminar_menu.setLayout(pane_eliminar_menuLayout);
-        pane_eliminar_menuLayout.setHorizontalGroup(
-            pane_eliminar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 622, Short.MAX_VALUE)
-        );
-        pane_eliminar_menuLayout.setVerticalGroup(
-            pane_eliminar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 453, Short.MAX_VALUE)
-        );
-
-        tp_menu_options.addTab("Eliminar", pane_eliminar_menu);
+        tp_menu_options.addTab("Menu", pane_lista_ordenes);
 
         jLabel1.setText("Nombre:");
 
@@ -268,20 +323,211 @@ public class StartScreen extends javax.swing.JFrame {
                                         .addComponent(btn_agregarIngrediente))
                                     .addGroup(pane_agregar_menuLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jt_ingredienteMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jt_ingredienteMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel7))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel8)
                                             .addComponent(jt_ingredienteDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(pane_agregar_menuLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel7))))
+                            .addComponent(jLabel6)))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 41, Short.MAX_VALUE))
+                .addGap(0, 58, Short.MAX_VALUE))
         );
 
         tp_menu_options.addTab("Agregar", pane_agregar_menu);
+
+        jLabel11.setText("Nombre:");
+
+        jLabel12.setText("Precio:");
+
+        jLabel13.setText("Tiempo de preparación:");
+
+        jLabel14.setText("Descripción:");
+
+        jt_descripcionPlatoM.setColumns(20);
+        jt_descripcionPlatoM.setRows(5);
+        jScrollPane6.setViewportView(jt_descripcionPlatoM);
+
+        jLabel15.setText("Agregar Ingredientes");
+
+        jLabel16.setText("Nombre:");
+
+        jLabel17.setText("Cantidad: ");
+
+        jLabel18.setText("Medida");
+
+        jLabel19.setText("Descripción");
+
+        btn_agregarIngredienteM.setText("---->");
+        btn_agregarIngredienteM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarIngredienteMActionPerformed(evt);
+            }
+        });
+
+        jScrollPane7.setViewportView(jl_ingredientesPlatoM);
+
+        jLabel20.setText("Ingredientes Actuales");
+
+        btn_cargarPlato.setText("Cargar Plato");
+        btn_cargarPlato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cargarPlatoActionPerformed(evt);
+            }
+        });
+
+        btn_guardarCambiosPlatos.setText("Guardar Cambios");
+        btn_guardarCambiosPlatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarCambiosPlatosActionPerformed(evt);
+            }
+        });
+
+        btn_eliminarIngrediente.setText("Eliminar Ingrediente Seleccionado");
+        btn_eliminarIngrediente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarIngredienteActionPerformed(evt);
+            }
+        });
+
+        btn_cargarIngrediente.setText("Cargar Ingrediente Seleccionado");
+        btn_cargarIngrediente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cargarIngredienteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel20)
+                    .addComponent(btn_guardarCambiosPlatos, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jc_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jt_tiempoPlatoM)
+                                    .addComponent(jt_precioPlatoM)
+                                    .addComponent(jt_nombrePlatoM, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_cargarPlato)
+                                .addGap(59, 59, 59))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jLabel17))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jt_ingredientePlatoM, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jt_cantidadIngredientesPlatoM, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jt_ingredienteMedidaM, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jt_ingredienteDescripcionM, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(12, 12, 12)
+                                .addComponent(btn_agregarIngredienteM))
+                            .addComponent(btn_cargarIngrediente))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(btn_eliminarIngrediente)))))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel11)
+                        .addComponent(jt_nombrePlatoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jc_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jt_precioPlatoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel12))
+                    .addComponent(btn_cargarPlato))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jt_tiempoPlatoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13))
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(btn_guardarCambiosPlatos)
+                        .addGap(106, 106, 106)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel20))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(82, 82, 82)
+                                .addComponent(btn_agregarIngredienteM))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_eliminarIngrediente)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_cargarIngrediente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(jt_ingredientePlatoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jt_cantidadIngredientesPlatoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jt_ingredienteMedidaM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jt_ingredienteDescripcionM, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel18)))
+                        .addGap(20, 20, 20))))
+        );
+
+        tp_menu_options.addTab("Modificar", jPanel1);
 
         javax.swing.GroupLayout jd_menuLayout = new javax.swing.GroupLayout(jd_menu.getContentPane());
         jd_menu.getContentPane().setLayout(jd_menuLayout);
@@ -589,35 +835,48 @@ public class StartScreen extends javax.swing.JFrame {
         double precio;
         int tiempoPreparacion;
         
-        if ((jt_nombrePlato.getText()==null || jt_nombrePlato.getText().equals("") )
-                || (jt_descripcionPlato.getText()==null || jt_descripcionPlato.getText().equals("")) 
-                || (jt_tiempoPlato.getText()==null || jt_tiempoPlato.getText().equals("")) 
-                || this.ingredientesTemp.size()==0){
-            
-            JOptionPane.showMessageDialog(this, "Valor inválido en algún campo o la lista de ingredientes está vacía", "Error", JOptionPane.ERROR_MESSAGE);
+        if (!isNumber(jt_tiempoPlato.getText()) || !isNumber(jt_precioPlato.getText())){
+            JOptionPane.showMessageDialog(this, "Ingreso un valor no numérico en un campo","Error", JOptionPane.ERROR_MESSAGE);
             
         }else{
-            nombre = jt_nombrePlato.getText();
-            descripcion = jt_descripcionPlato.getText();
-            precio = Double.parseDouble(jt_precioPlato.getText());
-            tiempoPreparacion = Integer.parseInt(jt_tiempoPlato.getText());
-            menu.push_back(new Plato(nombre,descripcion,precio,tiempoPreparacion,ingredientesTemp));
-            
-            jt_nombrePlato.setText("");
-            jt_descripcionPlato.setText("");
-            jt_tiempoPlato.setText("");
-            jt_precioPlato.setText("");
-            ingredientesTemp = new List();
-            
-            jl_ingredientesPlato.setModel(new DefaultListModel());
+            if ((jt_nombrePlato.getText()==null || jt_nombrePlato.getText().equals("") )
+                    || (jt_descripcionPlato.getText()==null || jt_descripcionPlato.getText().equals("")) 
+                    || (jt_tiempoPlato.getText()==null || jt_tiempoPlato.getText().equals("")
+                    || (jt_precioPlato.getText()==null || jt_precioPlato.getText().equals(""))) 
+                    || this.ingredientesTemp.size()==0){
+
+                JOptionPane.showMessageDialog(this, "Valor inválido en algún campo o la lista de ingredientes está vacía", "Error", JOptionPane.ERROR_MESSAGE);
+
+            }else{
+                nombre = jt_nombrePlato.getText();
+                descripcion = jt_descripcionPlato.getText();
+                precio = Double.parseDouble(jt_precioPlato.getText());
+                tiempoPreparacion = Integer.parseInt(jt_tiempoPlato.getText());
+                menu.push_back(new Plato(nombre,descripcion,precio,tiempoPreparacion,ingredientesTemp));
+
+                jt_nombrePlato.setText("");
+                jt_descripcionPlato.setText("");
+                jt_tiempoPlato.setText("");
+                jt_precioPlato.setText("");
+                ingredientesTemp = new List();
+
+                jl_ingredientesPlato.setModel(new DefaultListModel());
+                JOptionPane.showMessageDialog(this, "Plato agregado con éxito", "Confirmación", JOptionPane.INFORMATION_MESSAGE);
+
+                reloadTable();
+
+            }
         }
-        
-        
-        
+  
     }//GEN-LAST:event_btn_agregarPlatoActionPerformed
 
     private void btn_agregarIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarIngredienteActionPerformed
-        if ((jt_ingredientePlato.getText() == null || jt_ingredientePlato.getText().equals("")) 
+        
+        
+        if (!isNumber(jt_cantidadIngredientesPlato.getText())){
+            JOptionPane.showMessageDialog(this, "Ingreso un valor no numérico en un campo","Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            if ((jt_ingredientePlato.getText() == null || jt_ingredientePlato.getText().equals("")) 
                 || (jt_cantidadIngredientesPlato.getText()==null || jt_cantidadIngredientesPlato.getText().equals(""))
                 || (jt_ingredienteDescripcion.getText()==null || jt_ingredienteDescripcion.getText().equals(""))
                 || (jt_ingredienteMedida.getText()==null || jt_ingredienteMedida.getText().equals("")) ) {
@@ -638,7 +897,11 @@ public class StartScreen extends javax.swing.JFrame {
             jt_cantidadIngredientesPlato.setText("");
             jt_ingredienteDescripcion.setText("");
             jt_ingredienteMedida.setText("");
+            }
         }
+        
+        
+        
         
         
     }//GEN-LAST:event_btn_agregarIngredienteActionPerformed
@@ -647,6 +910,139 @@ public class StartScreen extends javax.swing.JFrame {
        jd_menu.dispose();
        this.setVisible(true);
     }//GEN-LAST:event_jd_menuWindowClosing
+
+    private void btn_agregarIngredienteMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarIngredienteMActionPerformed
+        if (!isNumber(jt_cantidadIngredientesPlatoM.getText())){
+            JOptionPane.showMessageDialog(this, "Ingreso un valor no numérico en un campo","Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            if ((jt_ingredientePlatoM.getText() == null || jt_ingredientePlatoM.getText().equals("")) 
+                || (jt_cantidadIngredientesPlatoM.getText()==null || jt_cantidadIngredientesPlatoM.getText().equals(""))
+                || (jt_ingredienteDescripcionM.getText()==null || jt_ingredienteDescripcionM.getText().equals(""))
+                || (jt_ingredienteMedidaM.getText()==null || jt_ingredienteMedidaM.getText().equals("")) ) {
+            
+            JOptionPane.showMessageDialog(this, "Valor invalido en algun campo", "Error", JOptionPane.ERROR_MESSAGE);
+            
+        }else{
+            ingredientesTemp.push_back(new Ingrediente(jt_ingredientePlatoM.getText()
+                    ,Double.parseDouble(jt_cantidadIngredientesPlatoM.getText())
+                    ,jt_ingredienteMedidaM.getText()
+                    ,jt_ingredienteDescripcionM.getText()));
+            DefaultListModel model = new DefaultListModel();
+            for (int i = 0; i < ingredientesTemp.size(); i++) {
+                model.add(i,((Ingrediente)ingredientesTemp.elementAt(i).getValue()).toString());
+            }
+            jl_ingredientesPlatoM.setModel(model);
+            jt_ingredientePlatoM.setText("");
+            jt_cantidadIngredientesPlatoM.setText("");
+            jt_ingredienteDescripcionM.setText("");
+            jt_ingredienteMedidaM.setText("");
+            }
+        }
+    }//GEN-LAST:event_btn_agregarIngredienteMActionPerformed
+
+    private void tp_menu_optionsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tp_menu_optionsStateChanged
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        
+        for (int i = 0; i < menu.size(); i++) {
+            model.addElement(((Plato)menu.elementAt(i).getValue()).getNombre());
+        }
+        jc_menu.setModel(model);
+    }//GEN-LAST:event_tp_menu_optionsStateChanged
+
+    private void btn_cargarPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cargarPlatoActionPerformed
+        menuIndex = jc_menu.getSelectedIndex();
+        this.jt_nombrePlatoM.setText(((Plato)menu.elementAt(menuIndex).getValue()).getNombre());
+        this.jt_precioPlatoM.setText(Double.toString(((Plato)menu.elementAt(menuIndex).getValue()).getPrecio()));
+        this.jt_tiempoPlatoM.setText(Integer.toString(((Plato)menu.elementAt(menuIndex).getValue()).getPreparacion()));
+        this.jt_descripcionPlatoM.setText(((Plato)menu.elementAt(menuIndex).getValue()).getDescripcion());
+        
+        DefaultListModel model = new DefaultListModel();
+            for (int i = 0; i < ((Plato)menu.elementAt(menuIndex).getValue()).getIngredientes().size(); i++) {
+                model.add(i,(((Plato)menu.elementAt(menuIndex).getValue()).getIngredientes().elementAt(i).getValue()).toString());
+            }
+        jl_ingredientesPlatoM.setModel(model);
+        ingredientesTemp = ((Plato)menu.elementAt(menuIndex).getValue()).getIngredientes();
+    }//GEN-LAST:event_btn_cargarPlatoActionPerformed
+
+    private void btn_cargarIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cargarIngredienteActionPerformed
+        int index = jl_ingredientesPlatoM.getSelectedIndex();
+        if (index !=-1){
+            jt_ingredientePlatoM.setText(((Ingrediente)ingredientesTemp.elementAt(index).getValue()).getNombre());
+            jt_cantidadIngredientesPlatoM.setText(Double.toString(((Ingrediente)ingredientesTemp.elementAt(index).getValue()).getCantidad()));
+            jt_ingredienteMedidaM.setText(((Ingrediente)ingredientesTemp.elementAt(index).getValue()).getMedida());
+            jt_ingredienteDescripcionM.setText(((Ingrediente)ingredientesTemp.elementAt(index).getValue()).getDescripción());
+        }else{
+            JOptionPane.showMessageDialog(this, "Porfavor seleccione un elemento de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_btn_cargarIngredienteActionPerformed
+
+    private void btn_eliminarIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarIngredienteActionPerformed
+        int index = jl_ingredientesPlatoM.getSelectedIndex();
+        if (index!=-1){
+            ingredientesTemp.remove(index);
+            DefaultListModel model = new DefaultListModel();
+            for (int i = 0; i < ingredientesTemp.size(); i++) {
+                model.add(i,((Ingrediente)ingredientesTemp.elementAt(i).getValue()).toString());
+            }
+            jl_ingredientesPlatoM.setModel(model);
+            
+            
+        } else{
+            JOptionPane.showMessageDialog(this, "Porfavor seleccione un elemento de la lista de ingredientes", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btn_eliminarIngredienteActionPerformed
+
+    private void btn_guardarCambiosPlatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarCambiosPlatosActionPerformed
+        String nombre,descripcion;
+        double precio;
+        int tiempoPreparacion;
+        
+        if (!isNumber(jt_tiempoPlatoM.getText()) || !isNumber(jt_precioPlatoM.getText())){
+            JOptionPane.showMessageDialog(this, "Ingreso un valor no numérico en un campo","Error", JOptionPane.ERROR_MESSAGE);
+            
+        }else{
+            if ((jt_nombrePlatoM.getText()==null || jt_nombrePlatoM.getText().equals("") )
+                    || (jt_descripcionPlatoM.getText()==null || jt_descripcionPlatoM.getText().equals("")) 
+                    || (jt_tiempoPlatoM.getText()==null || jt_tiempoPlatoM.getText().equals("")
+                    || (jt_precioPlatoM.getText()==null || jt_precioPlatoM.getText().equals(""))) 
+                    || this.ingredientesTemp.size()==0){
+
+                JOptionPane.showMessageDialog(this, "Valor inválido en algún campo o la lista de ingredientes está vacía", "Error", JOptionPane.ERROR_MESSAGE);
+
+            }else{
+                nombre = jt_nombrePlatoM.getText();
+                descripcion = jt_descripcionPlatoM.getText();
+                precio = Double.parseDouble(jt_precioPlatoM.getText());
+                tiempoPreparacion = Integer.parseInt(jt_tiempoPlatoM.getText());
+                menu.remove(menuIndex);
+                menu.push_back(new Plato(nombre,descripcion,precio,tiempoPreparacion,ingredientesTemp));
+
+                jt_nombrePlatoM.setText("");
+                jt_descripcionPlatoM.setText("");
+                jt_tiempoPlatoM.setText("");
+                jt_precioPlatoM.setText("");
+                ingredientesTemp = new List();
+
+                jl_ingredientesPlatoM.setModel(new DefaultListModel());
+                JOptionPane.showMessageDialog(this, "Plato agregado con éxito", "Confirmación", JOptionPane.INFORMATION_MESSAGE);
+
+                reloadTable();
+                DefaultComboBoxModel comboBoxModel = new DefaultComboBoxModel();
+                for (int i = 0; i < menu.size(); i++) {
+                    comboBoxModel.addElement(((Plato)menu.elementAt(i).getValue()).getNombre());
+                }
+                jc_menu.setModel(comboBoxModel);
+
+            }
+        }
+    }//GEN-LAST:event_btn_guardarCambiosPlatosActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int index = this.JTableMenu.getSelectedRow();
+        menu.remove(index);
+        reloadTable();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -690,20 +1086,83 @@ public class StartScreen extends javax.swing.JFrame {
         jd_ventana.setVisible(true);
         
     }
+    private void reloadTable(){
+        DefaultTableModel tableModel = (DefaultTableModel)JTableMenu.getModel();
+        
+            while(tableModel.getRowCount()!=0){
+                tableModel.removeRow(0);
+            }
+            
+            Object row[];
+            for (int i = 0; i < menu.size(); i++) {
+                row = new Object[]{(i+1)
+                        ,((Plato)menu.elementAt(i).getValue()).getNombre()
+                        ,((Plato)menu.elementAt(i).getValue()).getPrecio()
+                        ,((Plato)menu.elementAt(i).getValue()).getPreparacion()};
+                tableModel.addRow(row);
+                
+            }
+            JTableMenu.setModel(tableModel);
+    }
+    
+    private boolean isNumber(String string){
+        int contador = 0;
+        
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == '0'
+                    || string.charAt(i) == '1'
+                    || string.charAt(i) == '2'
+                    || string.charAt(i) == '3'
+                    || string.charAt(i) == '4'
+                    || string.charAt(i) == '5'
+                    || string.charAt(i) == '6'
+                    || string.charAt(i) == '7'
+                    || string.charAt(i) == '8'
+                    || string.charAt(i) == '9'
+                    || string.charAt(i) == '.'){
+                if (string.charAt(i) == '.'){
+                    contador++;
+                }
+            } else{
+                return false;
+            }
+        }
+        if(contador>1){
+            return false;
+        }
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable JTableMenu;
     private javax.swing.JButton agregar_ingrediente;
     private javax.swing.JButton btn_agregarIngrediente;
+    private javax.swing.JButton btn_agregarIngredienteM;
     private javax.swing.JButton btn_agregarPlato;
+    private javax.swing.JButton btn_cargarIngrediente;
+    private javax.swing.JButton btn_cargarPlato;
+    private javax.swing.JButton btn_eliminarIngrediente;
+    private javax.swing.JButton btn_guardarCambiosPlatos;
     private javax.swing.JButton cmd_cierre;
     private javax.swing.JButton cmd_ingredients;
     private javax.swing.JButton cmd_menu;
     private javax.swing.JButton cmd_order;
     private javax.swing.JButton cmd_rrhh;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -711,24 +1170,38 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JComboBox jc_menu;
     private javax.swing.JDialog jd_cierre;
     private javax.swing.JDialog jd_ingredients;
     private javax.swing.JDialog jd_menu;
     private javax.swing.JDialog jd_order;
     private javax.swing.JDialog jd_rrhh;
     private javax.swing.JList jl_ingredientesPlato;
+    private javax.swing.JList jl_ingredientesPlatoM;
     private javax.swing.JTextField jt_cantidadIngredientesPlato;
+    private javax.swing.JTextField jt_cantidadIngredientesPlatoM;
     private javax.swing.JTextArea jt_descripcionPlato;
+    private javax.swing.JTextArea jt_descripcionPlatoM;
     private javax.swing.JTextField jt_ingredienteDescripcion;
+    private javax.swing.JTextField jt_ingredienteDescripcionM;
     private javax.swing.JTextField jt_ingredienteMedida;
+    private javax.swing.JTextField jt_ingredienteMedidaM;
     private javax.swing.JTextField jt_ingredientePlato;
+    private javax.swing.JTextField jt_ingredientePlatoM;
     private javax.swing.JTextField jt_nombrePlato;
+    private javax.swing.JTextField jt_nombrePlatoM;
     private javax.swing.JTextField jt_precioPlato;
+    private javax.swing.JTextField jt_precioPlatoM;
     private javax.swing.JTextField jt_tiempoPlato;
+    private javax.swing.JTextField jt_tiempoPlatoM;
     private javax.swing.JLabel lbl_cantidad_ingredientes;
     private javax.swing.JLabel lbl_descripcion_ingredientes;
     private javax.swing.JLabel lbl_medida_ingredientes;
@@ -736,9 +1209,7 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_nombre_ingrediente;
     private javax.swing.JList listaTemp;
     private javax.swing.JPanel pane_agregar_menu;
-    private javax.swing.JPanel pane_eliminar_menu;
     private javax.swing.JPanel pane_lista_ordenes;
-    private javax.swing.JPanel pane_modificar_menu;
     private javax.swing.JPanel panel_buttons;
     private javax.swing.JSpinner sp_cantidadIngrediente;
     private javax.swing.JTextArea ta_descripcion_ingredientes;
@@ -749,5 +1220,6 @@ public class StartScreen extends javax.swing.JFrame {
     private List almacen= new List();
     private List menu = new List();
     private List ingredientesTemp = new List();
+    private int menuIndex;
 
 }
