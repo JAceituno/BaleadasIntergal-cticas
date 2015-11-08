@@ -34,27 +34,32 @@ public class StartScreen extends javax.swing.JFrame {
         jd_menu = new javax.swing.JDialog();
         tp_menu_options = new javax.swing.JTabbedPane();
         pane_lista_ordenes = new javax.swing.JPanel();
+        pane_modificar_menu = new javax.swing.JPanel();
+        pane_eliminar_menu = new javax.swing.JPanel();
         pane_agregar_menu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jt_tiempoPlato = new javax.swing.JTextField();
+        jt_precioPlato = new javax.swing.JTextField();
+        jt_nombrePlato = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        jt_descripcionPlato = new javax.swing.JTextArea();
+        btn_agregarPlato = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jt_cantidadIngredientesPlato = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jt_ingredientePlato = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jt_ingredienteMedida = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jt_ingredienteDescripcion = new javax.swing.JTextField();
+        btn_agregarIngrediente = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
-        jButton3 = new javax.swing.JButton();
-        pane_modificar_menu = new javax.swing.JPanel();
-        pane_eliminar_menu = new javax.swing.JPanel();
+        jl_ingredientesPlato = new javax.swing.JList();
+        jLabel10 = new javax.swing.JLabel();
         jd_ingredients = new javax.swing.JDialog();
         lbl_nombre_ingrediente = new javax.swing.JLabel();
         lbl_cantidad_ingredientes = new javax.swing.JLabel();
@@ -80,18 +85,50 @@ public class StartScreen extends javax.swing.JFrame {
         cmd_cierre = new javax.swing.JButton();
         lbl_meme = new javax.swing.JLabel();
 
+        jd_menu.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                jd_menuWindowClosing(evt);
+            }
+        });
+
         javax.swing.GroupLayout pane_lista_ordenesLayout = new javax.swing.GroupLayout(pane_lista_ordenes);
         pane_lista_ordenes.setLayout(pane_lista_ordenesLayout);
         pane_lista_ordenesLayout.setHorizontalGroup(
             pane_lista_ordenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 541, Short.MAX_VALUE)
+            .addGap(0, 622, Short.MAX_VALUE)
         );
         pane_lista_ordenesLayout.setVerticalGroup(
             pane_lista_ordenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 366, Short.MAX_VALUE)
+            .addGap(0, 453, Short.MAX_VALUE)
         );
 
         tp_menu_options.addTab("Lista de Órdenes", pane_lista_ordenes);
+
+        javax.swing.GroupLayout pane_modificar_menuLayout = new javax.swing.GroupLayout(pane_modificar_menu);
+        pane_modificar_menu.setLayout(pane_modificar_menuLayout);
+        pane_modificar_menuLayout.setHorizontalGroup(
+            pane_modificar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 622, Short.MAX_VALUE)
+        );
+        pane_modificar_menuLayout.setVerticalGroup(
+            pane_modificar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 453, Short.MAX_VALUE)
+        );
+
+        tp_menu_options.addTab("Modificar", pane_modificar_menu);
+
+        javax.swing.GroupLayout pane_eliminar_menuLayout = new javax.swing.GroupLayout(pane_eliminar_menu);
+        pane_eliminar_menu.setLayout(pane_eliminar_menuLayout);
+        pane_eliminar_menuLayout.setHorizontalGroup(
+            pane_eliminar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 622, Short.MAX_VALUE)
+        );
+        pane_eliminar_menuLayout.setVerticalGroup(
+            pane_eliminar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 453, Short.MAX_VALUE)
+        );
+
+        tp_menu_options.addTab("Eliminar", pane_eliminar_menu);
 
         jLabel1.setText("Nombre:");
 
@@ -101,62 +138,37 @@ public class StartScreen extends javax.swing.JFrame {
 
         jLabel4.setText("Descripción:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
+        jt_descripcionPlato.setColumns(20);
+        jt_descripcionPlato.setRows(5);
+        jScrollPane3.setViewportView(jt_descripcionPlato);
 
-        jLabel5.setText("Ingredientes: ");
+        btn_agregarPlato.setText("Agregar Plato al Menú");
+        btn_agregarPlato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarPlatoActionPerformed(evt);
+            }
+        });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel9.setText("Ingredientes Actuales");
 
         jLabel6.setText("Cantidad: ");
 
-        jButton1.setText("---->");
+        jLabel7.setText("Medida");
 
-        jScrollPane4.setViewportView(jList1);
+        jLabel5.setText("Nombre:");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox1, 0, 127, Short.MAX_VALUE)
-                            .addComponent(jTextField4)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jButton1)))
-                .addGap(46, 46, 46)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton1)))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
+        jLabel8.setText("Descripción");
 
-        jButton3.setText("Agregar");
+        btn_agregarIngrediente.setText("---->");
+        btn_agregarIngrediente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarIngredienteActionPerformed(evt);
+            }
+        });
+
+        jScrollPane4.setViewportView(jl_ingredientesPlato);
+
+        jLabel10.setText("Agregar Ingredientes");
 
         javax.swing.GroupLayout pane_agregar_menuLayout = new javax.swing.GroupLayout(pane_agregar_menu);
         pane_agregar_menu.setLayout(pane_agregar_menuLayout);
@@ -173,68 +185,103 @@ public class StartScreen extends javax.swing.JFrame {
                 .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pane_agregar_menuLayout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE))
                     .addGroup(pane_agregar_menuLayout.createSequentialGroup()
                         .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                        .addGap(47, 47, 47)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jt_tiempoPlato)
+                            .addComponent(jt_precioPlato)
+                            .addComponent(jt_nombrePlato, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_agregarPlato)))
+                .addGap(28, 28, 28))
+            .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(81, 81, 81))
+            .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jt_ingredientePlato, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_cantidadIngredientesPlato, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                        .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jt_ingredienteMedida, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jt_ingredienteDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_agregarIngrediente)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pane_agregar_menuLayout.setVerticalGroup(
             pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pane_agregar_menuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
-                .addGap(18, 18, 18)
-                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(btn_agregarPlato))
+                    .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jt_nombrePlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jt_precioPlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))))
+                .addGap(20, 20, 20)
+                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jt_tiempoPlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)))
+                    .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))))
+                .addGap(25, 25, 25)
+                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                        .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jt_ingredientePlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                                .addComponent(jt_cantidadIngredientesPlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                                        .addGap(15, 15, 15)
+                                        .addComponent(btn_agregarIngrediente))
+                                    .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jt_ingredienteMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(pane_agregar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jt_ingredienteDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(pane_agregar_menuLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel7))))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 41, Short.MAX_VALUE))
         );
 
         tp_menu_options.addTab("Agregar", pane_agregar_menu);
-
-        javax.swing.GroupLayout pane_modificar_menuLayout = new javax.swing.GroupLayout(pane_modificar_menu);
-        pane_modificar_menu.setLayout(pane_modificar_menuLayout);
-        pane_modificar_menuLayout.setHorizontalGroup(
-            pane_modificar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 541, Short.MAX_VALUE)
-        );
-        pane_modificar_menuLayout.setVerticalGroup(
-            pane_modificar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 366, Short.MAX_VALUE)
-        );
-
-        tp_menu_options.addTab("Modificar", pane_modificar_menu);
-
-        javax.swing.GroupLayout pane_eliminar_menuLayout = new javax.swing.GroupLayout(pane_eliminar_menu);
-        pane_eliminar_menu.setLayout(pane_eliminar_menuLayout);
-        pane_eliminar_menuLayout.setHorizontalGroup(
-            pane_eliminar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 541, Short.MAX_VALUE)
-        );
-        pane_eliminar_menuLayout.setVerticalGroup(
-            pane_eliminar_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 366, Short.MAX_VALUE)
-        );
-
-        tp_menu_options.addTab("Eliminar", pane_eliminar_menu);
 
         javax.swing.GroupLayout jd_menuLayout = new javax.swing.GroupLayout(jd_menu.getContentPane());
         jd_menu.getContentPane().setLayout(jd_menuLayout);
@@ -393,6 +440,11 @@ public class StartScreen extends javax.swing.JFrame {
                 cmd_menuMouseClicked(evt);
             }
         });
+        cmd_menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmd_menuActionPerformed(evt);
+            }
+        });
 
         cmd_ingredients.setText("Ingredientes");
         cmd_ingredients.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -526,6 +578,74 @@ public class StartScreen extends javax.swing.JFrame {
         openDialog(jd_menu);
     }//GEN-LAST:event_cmd_menuMouseClicked
 
+    private void cmd_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_menuActionPerformed
+        this.setVisible(false);
+        this.openDialog(jd_menu);
+        
+    }//GEN-LAST:event_cmd_menuActionPerformed
+
+    private void btn_agregarPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarPlatoActionPerformed
+        String nombre,descripcion;
+        double precio;
+        int tiempoPreparacion;
+        
+        if ((jt_nombrePlato.getText()==null || jt_nombrePlato.getText().equals("") )
+                || (jt_descripcionPlato.getText()==null || jt_descripcionPlato.getText().equals("")) 
+                || (jt_tiempoPlato.getText()==null || jt_tiempoPlato.getText().equals("")) 
+                || this.ingredientesTemp.size()==0){
+            
+            JOptionPane.showMessageDialog(this, "Valor inválido en algún campo o la lista de ingredientes está vacía", "Error", JOptionPane.ERROR_MESSAGE);
+            
+        }else{
+            nombre = jt_nombrePlato.getText();
+            descripcion = jt_descripcionPlato.getText();
+            precio = Double.parseDouble(jt_precioPlato.getText());
+            tiempoPreparacion = Integer.parseInt(jt_tiempoPlato.getText());
+            menu.push_back(new Plato(nombre,descripcion,precio,tiempoPreparacion,ingredientesTemp));
+            
+            jt_nombrePlato.setText("");
+            jt_descripcionPlato.setText("");
+            jt_tiempoPlato.setText("");
+            jt_precioPlato.setText("");
+            ingredientesTemp = new List();
+        }
+        
+        
+        
+    }//GEN-LAST:event_btn_agregarPlatoActionPerformed
+
+    private void btn_agregarIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarIngredienteActionPerformed
+        if ((jt_ingredientePlato.getText() == null || jt_ingredientePlato.getText().equals("")) 
+                || (jt_cantidadIngredientesPlato.getText()==null || jt_cantidadIngredientesPlato.getText().equals(""))
+                || (jt_ingredienteDescripcion.getText()==null || jt_ingredienteDescripcion.getText().equals(""))
+                || (jt_ingredienteMedida.getText()==null || jt_ingredienteMedida.getText().equals("")) ) {
+            
+            JOptionPane.showMessageDialog(this, "Valor invalido en algun campo", "Error", JOptionPane.ERROR_MESSAGE);
+            
+        }else{
+            ingredientesTemp.push_back(new Ingrediente(jt_ingredientePlato.getText()
+                    ,Double.parseDouble(jt_cantidadIngredientesPlato.getText())
+                    ,jt_ingredienteMedida.getText()
+                    ,jt_ingredienteDescripcion.getText()));
+            DefaultListModel model = new DefaultListModel();
+            for (int i = 0; i < ingredientesTemp.size(); i++) {
+                model.add(i,((Ingrediente)ingredientesTemp.elementAt(i).getValue()).toString());
+            }
+            jl_ingredientesPlato.setModel(model);
+            jt_ingredientePlato.setText("");
+            jt_cantidadIngredientesPlato.setText("");
+            jt_ingredienteDescripcion.setText("");
+            jt_ingredienteMedida.setText("");
+        }
+        
+        
+    }//GEN-LAST:event_btn_agregarIngredienteActionPerformed
+
+    private void jd_menuWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jd_menuWindowClosing
+       jd_menu.dispose();
+       this.setVisible(true);
+    }//GEN-LAST:event_jd_menuWindowClosing
+
     /**
      * @param args the command line arguments
      */
@@ -562,7 +682,7 @@ public class StartScreen extends javax.swing.JFrame {
     }
     
     private void openDialog(javax.swing.JDialog jd_ventana){
-        jd_ventana.setLocationRelativeTo(null);
+        jd_ventana.setLocationRelativeTo(this);
         jd_ventana.setModal(true);
         jd_ventana.pack();
         jd_ventana.setVisible(true);
@@ -571,37 +691,42 @@ public class StartScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregar_ingrediente;
+    private javax.swing.JButton btn_agregarIngrediente;
+    private javax.swing.JButton btn_agregarPlato;
     private javax.swing.JButton cmd_cierre;
     private javax.swing.JButton cmd_ingredients;
     private javax.swing.JButton cmd_menu;
     private javax.swing.JButton cmd_order;
     private javax.swing.JButton cmd_rrhh;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JList jList1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JDialog jd_cierre;
     private javax.swing.JDialog jd_ingredients;
     private javax.swing.JDialog jd_menu;
     private javax.swing.JDialog jd_order;
     private javax.swing.JDialog jd_rrhh;
+    private javax.swing.JList jl_ingredientesPlato;
+    private javax.swing.JTextField jt_cantidadIngredientesPlato;
+    private javax.swing.JTextArea jt_descripcionPlato;
+    private javax.swing.JTextField jt_ingredienteDescripcion;
+    private javax.swing.JTextField jt_ingredienteMedida;
+    private javax.swing.JTextField jt_ingredientePlato;
+    private javax.swing.JTextField jt_nombrePlato;
+    private javax.swing.JTextField jt_precioPlato;
+    private javax.swing.JTextField jt_tiempoPlato;
     private javax.swing.JLabel lbl_cantidad_ingredientes;
     private javax.swing.JLabel lbl_descripcion_ingredientes;
     private javax.swing.JLabel lbl_medida_ingredientes;
@@ -620,5 +745,7 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tp_menu_options;
     // End of variables declaration//GEN-END:variables
     private List almacen= new List();
+    private List menu = new List();
+    private List ingredientesTemp = new List();
 
 }

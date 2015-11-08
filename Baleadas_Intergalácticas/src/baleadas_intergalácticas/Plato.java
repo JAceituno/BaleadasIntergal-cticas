@@ -14,15 +14,16 @@ public class Plato {
     private String nombre;
     private String descripcion;
     private double precio;
-    private int preparacion;
+    private int tiempoPreparacion;
     // lista de ingredientes TDA pila
-    private List ingredientes = new List();
+    private List ingredientes;
 
-    public Plato(String nombre, String descripcion, double precio, int preparacion) {
+    public Plato(String nombre, String descripcion, double precio, int preparacion, List list) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
-        this.preparacion = preparacion;
+        this.tiempoPreparacion = preparacion;
+        this.ingredientes = list;
     }
     /*
     public Plato(String nombre, String descripcion, double precio, int preparacion, Object value) {
@@ -64,11 +65,11 @@ public class Plato {
     }
 
     public int getPreparacion() {
-        return preparacion;
+        return tiempoPreparacion;
     }
 
     public void setPreparacion(int preparacion) {
-        this.preparacion = preparacion;
+        this.tiempoPreparacion = preparacion;
     }
 
     public List getIngredientes() {
