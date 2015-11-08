@@ -1274,7 +1274,8 @@ public class StartScreen extends javax.swing.JFrame {
             if (index!=-1){
                 DefaultListModel modelo = (DefaultListModel)jl_orden.getModel();
                 modelo.remove(index);
-                jl_orden.setModel(modelo);
+                platosTemp.remove(index);
+                jl_orden.setModel(modelo);   
             }else{
                 JOptionPane.showMessageDialog(this, "Porvafor seleccione un elemento de la lista", "Error", JOptionPane.ERROR_MESSAGE);
             }
