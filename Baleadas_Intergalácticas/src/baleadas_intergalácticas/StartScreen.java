@@ -5,6 +5,7 @@
  */
 package baleadas_intergalácticas;
 
+import java.awt.event.KeyEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -106,6 +107,17 @@ public class StartScreen extends javax.swing.JFrame {
         listaTemp = new javax.swing.JList();
         jButton2 = new javax.swing.JButton();
         jd_order = new javax.swing.JDialog();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jl_menu = new javax.swing.JList();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jl_orden = new javax.swing.JList();
+        cmd_agregarPlatoOrden = new javax.swing.JButton();
+        cmd_ordenar = new javax.swing.JButton();
+        tf_numOrden = new javax.swing.JTextField();
+        tf_nombre_cliente = new javax.swing.JTextField();
         jd_rrhh = new javax.swing.JDialog();
         jd_cierre = new javax.swing.JDialog();
         panel_buttons = new javax.swing.JPanel();
@@ -645,15 +657,103 @@ public class StartScreen extends javax.swing.JFrame {
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
+        jd_order.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                jd_orderWindowClosing(evt);
+            }
+        });
+
+        jLabel21.setText("Número de orden: ");
+
+        jLabel22.setText("Nombre de cliente:");
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel23.setText("Menú");
+
+        jScrollPane8.setViewportView(jl_menu);
+
+        jl_orden.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jl_ordenKeyPressed(evt);
+            }
+        });
+        jScrollPane9.setViewportView(jl_orden);
+
+        cmd_agregarPlatoOrden.setText("------->");
+        cmd_agregarPlatoOrden.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmd_agregarPlatoOrdenMouseClicked(evt);
+            }
+        });
+
+        cmd_ordenar.setText("Ordenar");
+        cmd_ordenar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmd_ordenarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_orderLayout = new javax.swing.GroupLayout(jd_order.getContentPane());
         jd_order.getContentPane().setLayout(jd_orderLayout);
         jd_orderLayout.setHorizontalGroup(
             jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_orderLayout.createSequentialGroup()
+                .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_orderLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_orderLayout.createSequentialGroup()
+                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmd_agregarPlatoOrden, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_orderLayout.createSequentialGroup()
+                                .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jd_orderLayout.createSequentialGroup()
+                                        .addComponent(jLabel22)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tf_nombre_cliente))
+                                    .addGroup(jd_orderLayout.createSequentialGroup()
+                                        .addComponent(jLabel21)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tf_numOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jd_orderLayout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(cmd_ordenar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jd_orderLayout.createSequentialGroup()
+                .addGap(187, 187, 187)
+                .addComponent(jLabel23)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jd_orderLayout.setVerticalGroup(
             jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_orderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(tf_numOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(tf_nombre_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_orderLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jd_orderLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel23)
+                        .addGap(63, 63, 63)
+                        .addComponent(cmd_agregarPlatoOrden)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmd_ordenar)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jd_rrhhLayout = new javax.swing.GroupLayout(jd_rrhh.getContentPane());
@@ -700,6 +800,11 @@ public class StartScreen extends javax.swing.JFrame {
         });
 
         cmd_order.setText("Ordenar");
+        cmd_order.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmd_orderMouseClicked(evt);
+            }
+        });
 
         cmd_rrhh.setText("RRHH");
 
@@ -1044,6 +1149,69 @@ public class StartScreen extends javax.swing.JFrame {
         reloadTable();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void cmd_orderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_orderMouseClicked
+        this.setVisible(false);
+        DefaultListModel modelo = new DefaultListModel();
+        for(int i = 0; i < menu.size(); ++i){
+            modelo.addElement((Plato)menu.elementAt(i).getValue());
+        }
+        jl_menu.setModel(modelo);
+        this.openDialog(jd_order);
+    }//GEN-LAST:event_cmd_orderMouseClicked
+
+    private void cmd_agregarPlatoOrdenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_agregarPlatoOrdenMouseClicked
+        Object selection = jl_menu.getSelectedValue();
+        DefaultListModel modelo = new DefaultListModel();
+        for (int i = 0; i < platosTemp.size(); i++) {
+            modelo.addElement(platosTemp.elementAt(i));
+        }
+        modelo.addElement((Plato)selection);
+        platosTemp.push_back(selection);
+        jl_orden.setModel(modelo);
+    }//GEN-LAST:event_cmd_agregarPlatoOrdenMouseClicked
+
+    private void jl_ordenKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jl_ordenKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_DELETE || evt.getKeyCode() == KeyEvent.VK_BACK_SPACE){
+            int index = jl_orden.getSelectedIndex();
+            DefaultListModel modelo = (DefaultListModel)jl_orden.getModel();
+            modelo.remove(index);
+            jl_orden.setModel(modelo);
+        }
+    }//GEN-LAST:event_jl_ordenKeyPressed
+
+    private void cmd_ordenarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_ordenarMouseClicked
+        DefaultListModel modelo = new DefaultListModel();
+        for (int i = 0; i < platosTemp.size(); i++) {
+            modelo.addElement(platosTemp.elementAt(i));
+        }
+        if(tf_numOrden.getText() != null && tf_nombre_cliente.getText() != null && !modelo.isEmpty()){
+            if(isNumber(tf_numOrden.getText())){
+                Orden temp = new Orden(Integer.parseInt(tf_numOrden.getText()),tf_nombre_cliente.getText(),platosTemp);
+                int selection = JOptionPane.showConfirmDialog(this, temp.toString(), "Orden", JOptionPane.OK_CANCEL_OPTION);
+                
+                if(selection == JOptionPane.OK_OPTION){
+                    ordenes.queue(temp);
+                    tf_numOrden.setText("");
+                    tf_nombre_cliente.setText("");
+                    modelo.clear();
+                    platosTemp = new List();
+                    jl_orden.setModel(modelo);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Ingreso un valor no numérico en un campo","Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Hay campos vacíos","Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_cmd_ordenarMouseClicked
+
+    private void jd_orderWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jd_orderWindowClosing
+        jd_order.dispose();
+       this.setVisible(true);
+    }//GEN-LAST:event_jd_orderWindowClosing
+
     /**
      * @param args the command line arguments
      */
@@ -1089,20 +1257,20 @@ public class StartScreen extends javax.swing.JFrame {
     private void reloadTable(){
         DefaultTableModel tableModel = (DefaultTableModel)JTableMenu.getModel();
         
-            while(tableModel.getRowCount()!=0){
-                tableModel.removeRow(0);
-            }
-            
-            Object row[];
-            for (int i = 0; i < menu.size(); i++) {
-                row = new Object[]{(i+1)
-                        ,((Plato)menu.elementAt(i).getValue()).getNombre()
-                        ,((Plato)menu.elementAt(i).getValue()).getPrecio()
-                        ,((Plato)menu.elementAt(i).getValue()).getPreparacion()};
-                tableModel.addRow(row);
-                
-            }
-            JTableMenu.setModel(tableModel);
+        while(tableModel.getRowCount()!=0){
+            tableModel.removeRow(0);
+        }
+
+        Object row[];
+        for (int i = 0; i < menu.size(); i++) {
+            row = new Object[]{(i+1)
+                    ,((Plato)menu.elementAt(i).getValue()).getNombre()
+                    ,((Plato)menu.elementAt(i).getValue()).getPrecio()
+                    ,((Plato)menu.elementAt(i).getValue()).getPreparacion()};
+            tableModel.addRow(row);
+
+        }
+        JTableMenu.setModel(tableModel);
     }
     
     private boolean isNumber(String string){
@@ -1143,9 +1311,11 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JButton btn_cargarPlato;
     private javax.swing.JButton btn_eliminarIngrediente;
     private javax.swing.JButton btn_guardarCambiosPlatos;
+    private javax.swing.JButton cmd_agregarPlatoOrden;
     private javax.swing.JButton cmd_cierre;
     private javax.swing.JButton cmd_ingredients;
     private javax.swing.JButton cmd_menu;
+    private javax.swing.JButton cmd_ordenar;
     private javax.swing.JButton cmd_order;
     private javax.swing.JButton cmd_rrhh;
     private javax.swing.JButton jButton2;
@@ -1163,6 +1333,9 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1178,6 +1351,8 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JComboBox jc_menu;
     private javax.swing.JDialog jd_cierre;
     private javax.swing.JDialog jd_ingredients;
@@ -1186,6 +1361,8 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JDialog jd_rrhh;
     private javax.swing.JList jl_ingredientesPlato;
     private javax.swing.JList jl_ingredientesPlatoM;
+    private javax.swing.JList jl_menu;
+    private javax.swing.JList jl_orden;
     private javax.swing.JTextField jt_cantidadIngredientesPlato;
     private javax.swing.JTextField jt_cantidadIngredientesPlatoM;
     private javax.swing.JTextArea jt_descripcionPlato;
@@ -1215,11 +1392,16 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JTextArea ta_descripcion_ingredientes;
     private javax.swing.JTextField tf_medida_ingrediente;
     private javax.swing.JTextField tf_nombreIngrediente;
+    private javax.swing.JTextField tf_nombre_cliente;
+    private javax.swing.JTextField tf_numOrden;
     private javax.swing.JTabbedPane tp_menu_options;
     // End of variables declaration//GEN-END:variables
     private List almacen= new List();
     private List menu = new List();
     private List ingredientesTemp = new List();
+    private List platosTemp = new List();
+    private Queue ordenes = new Queue();
+    private Queue cocineros = new Queue();
     private int menuIndex;
 
 }

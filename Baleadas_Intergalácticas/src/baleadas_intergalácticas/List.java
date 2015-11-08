@@ -164,5 +164,16 @@ public class List {
     public Node last(){
         return elementAt(size()-1);
     }
+    public void printPlatos(){
+        if(head != null){
+            Node temp = head;
+            for (int i = 0; i < size(); i++) {
+                System.out.println("\t"+((Plato)temp.getValue()).toString());
+                if(temp.hasNext()){
+                    temp = temp.getNext();
+                }
+            }
+        }
+    }
     private Node head;
 }

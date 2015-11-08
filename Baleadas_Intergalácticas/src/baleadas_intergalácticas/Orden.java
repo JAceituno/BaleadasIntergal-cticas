@@ -13,28 +13,32 @@ public class Orden {
     
     private int numOrden;
     private String nombreCliente;
-    private double precioTotal;
-    private int preparacion;
+    private double precioTotal=0;
+    private int preparacion=0;
     // Lista de Platos pedidas TDA lista
-    private List list;
+    private List platos;
 
     public Orden(int numOrden, String nombreCliente, double precioTotal, int preparacion) {
         this.numOrden = numOrden;
         this.nombreCliente = nombreCliente;
         this.precioTotal = precioTotal;
         this.preparacion = preparacion;
-        list = new List();
+        platos = new List();
     }
-    public Orden(int numOrden, String nombreCliente, double precioTotal, int preparacion, Object value) {
+    public Orden(int numOrden, String nombreCliente, List platos) {
         this.numOrden = numOrden;
         this.nombreCliente = nombreCliente;
-        this.precioTotal = precioTotal;
-        this.preparacion = preparacion;
-        list = new List(value);
+        this.platos = platos;
+        
+        
+        for(int i = 0; i < platos.size(); ++i){
+            precioTotal += ((Plato)platos.elementAt(i).getValue()).getPrecio();
+            preparacion += ((Plato)platos.elementAt(i).getValue()).getPreparacion();
+        }
     }
 
     public Orden() {
-        list = new List();
+        platos = new List();
     }
 
     public int getNumOrden() {
@@ -70,11 +74,19 @@ public class Orden {
     }
 
     public List getList() {
-        return list;
+        return platos;
     }
 
     public void setList(List list) {
-        this.list = list;
+        this.platos = list;
+    }
+    
+    @Override
+    public String toString(){
+        return "Nombre del cliente:    "+ nombreCliente + "\n" +
+               "Número de orden:       "+ numOrden + "\n" +
+               "Tiempo de preparación: "+ preparacion +"s\n"+
+               "Precio total:          "+ precioTotal;
     }
     
     

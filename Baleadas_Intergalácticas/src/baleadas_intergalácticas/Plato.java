@@ -84,5 +84,8 @@ public class Plato {
         this.ingredientes.push_back(ingrediente);
     }
     
-    
+    @Override
+    public String toString(){
+        return "Nombre plato: " + nombre + "Precio: " + precio;                
+    }
 }
