@@ -118,6 +118,7 @@ public class StartScreen extends javax.swing.JFrame {
         cmd_ordenar = new javax.swing.JButton();
         tf_numOrden = new javax.swing.JTextField();
         tf_nombre_cliente = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
         jd_rrhh = new javax.swing.JDialog();
         jScrollPane10 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -695,11 +696,6 @@ public class StartScreen extends javax.swing.JFrame {
                 cmd_agregarPlatoOrdenMouseClicked(evt);
             }
         });
-        cmd_agregarPlatoOrden.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmd_agregarPlatoOrdenActionPerformed(evt);
-            }
-        });
 
         cmd_ordenar.setText("Ordenar");
         cmd_ordenar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -707,11 +703,9 @@ public class StartScreen extends javax.swing.JFrame {
                 cmd_ordenarMouseClicked(evt);
             }
         });
-        cmd_ordenar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmd_ordenarActionPerformed(evt);
-            }
-        });
+
+        jLabel27.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel27.setText("Platos Actuales");
 
         javax.swing.GroupLayout jd_orderLayout = new javax.swing.GroupLayout(jd_order.getContentPane());
         jd_order.getContentPane().setLayout(jd_orderLayout);
@@ -719,35 +713,36 @@ public class StartScreen extends javax.swing.JFrame {
             jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_orderLayout.createSequentialGroup()
                 .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_orderLayout.createSequentialGroup()
+                        .addContainerGap(132, Short.MAX_VALUE)
+                        .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jd_orderLayout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_nombre_cliente))
+                            .addGroup(jd_orderLayout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_numOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(116, 116, 116))
+                    .addGroup(jd_orderLayout.createSequentialGroup()
+                        .addGap(181, 181, 181)
+                        .addComponent(cmd_ordenar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jd_orderLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jd_orderLayout.createSequentialGroup()
-                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmd_agregarPlatoOrden, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jd_orderLayout.createSequentialGroup()
-                                .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jd_orderLayout.createSequentialGroup()
-                                        .addComponent(jLabel22)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_nombre_cliente))
-                                    .addGroup(jd_orderLayout.createSequentialGroup()
-                                        .addComponent(jLabel21)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_numOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jd_orderLayout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(cmd_ordenar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmd_agregarPlatoOrden)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jd_orderLayout.createSequentialGroup()
-                .addGap(187, 187, 187)
+                .addGap(84, 84, 84)
                 .addComponent(jLabel23)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel27)
+                .addGap(49, 49, 49))
         );
         jd_orderLayout.setVerticalGroup(
             jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -760,21 +755,25 @@ public class StartScreen extends javax.swing.JFrame {
                 .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
                     .addComponent(tf_nombre_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_orderLayout.createSequentialGroup()
-                        .addComponent(jLabel23)
-                        .addGap(63, 63, 63)
+                        .addGap(99, 99, 99)
                         .addComponent(cmd_agregarPlatoOrden)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_orderLayout.createSequentialGroup()
-                        .addGap(0, 21, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                         .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_orderLayout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_orderLayout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(12, 12, 12)
                 .addComponent(cmd_ordenar)
-                .addGap(20, 20, 20))
+                .addGap(26, 26, 26))
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -1288,7 +1287,7 @@ public class StartScreen extends javax.swing.JFrame {
         for (int i = 0; i < platosTemp.size(); i++) {
             modelo.addElement(platosTemp.elementAt(i));
         }
-        if(tf_numOrden.getText() != null && tf_nombre_cliente.getText() != null && !modelo.isEmpty()){
+        if((tf_numOrden.getText() != null && !tf_nombre_cliente.getText().equals("")) && (tf_nombre_cliente.getText() != null && !tf_nombre_cliente.getText().equals("")) && !modelo.isEmpty()){
             if(isNumber(tf_numOrden.getText())){
                 Orden temp = new Orden(Integer.parseInt(tf_numOrden.getText()),tf_nombre_cliente.getText(),platosTemp);
                 int selection = JOptionPane.showConfirmDialog(this, temp.toString(), "Orden", JOptionPane.OK_CANCEL_OPTION);
@@ -1315,14 +1314,6 @@ public class StartScreen extends javax.swing.JFrame {
         jd_order.dispose();
        this.setVisible(true);
     }//GEN-LAST:event_jd_orderWindowClosing
-
-    private void cmd_ordenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_ordenarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmd_ordenarActionPerformed
-
-    private void cmd_agregarPlatoOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_agregarPlatoOrdenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmd_agregarPlatoOrdenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1453,6 +1444,7 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
