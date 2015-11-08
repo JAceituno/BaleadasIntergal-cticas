@@ -695,11 +695,21 @@ public class StartScreen extends javax.swing.JFrame {
                 cmd_agregarPlatoOrdenMouseClicked(evt);
             }
         });
+        cmd_agregarPlatoOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmd_agregarPlatoOrdenActionPerformed(evt);
+            }
+        });
 
         cmd_ordenar.setText("Ordenar");
         cmd_ordenar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cmd_ordenarMouseClicked(evt);
+            }
+        });
+        cmd_ordenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmd_ordenarActionPerformed(evt);
             }
         });
 
@@ -750,20 +760,21 @@ public class StartScreen extends javax.swing.JFrame {
                 .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
                     .addComponent(tf_nombre_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_orderLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jd_orderLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(jLabel23)
                         .addGap(63, 63, 63)
-                        .addComponent(cmd_agregarPlatoOrden)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmd_agregarPlatoOrden)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_orderLayout.createSequentialGroup()
+                        .addGap(0, 21, Short.MAX_VALUE)
+                        .addGroup(jd_orderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
                 .addComponent(cmd_ordenar)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -1220,8 +1231,13 @@ public class StartScreen extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         int index = this.JTableMenu.getSelectedRow();
-        menu.remove(index);
-        reloadTable();
+        if (index !=-1){
+            menu.remove(index);
+            reloadTable();
+        }else{
+            JOptionPane.showMessageDialog(this, "Porvafor seleccione un elemento de la tabla", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void cmd_orderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_orderMouseClicked
@@ -1235,22 +1251,35 @@ public class StartScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_cmd_orderMouseClicked
 
     private void cmd_agregarPlatoOrdenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_agregarPlatoOrdenMouseClicked
-        Object selection = jl_menu.getSelectedValue();
-        DefaultListModel modelo = new DefaultListModel();
-        for (int i = 0; i < platosTemp.size(); i++) {
-            modelo.addElement(platosTemp.elementAt(i));
+        int index = jl_menu.getSelectedIndex();
+        
+        if (index !=-1){
+            Object selection = jl_menu.getSelectedValue();
+            DefaultListModel modelo = new DefaultListModel();
+            for (int i = 0; i < platosTemp.size(); i++) {
+                modelo.addElement(platosTemp.elementAt(i));
+            }
+            modelo.addElement((Plato)selection);
+            platosTemp.push_back(selection);
+            jl_orden.setModel(modelo);
+        }else{
+            JOptionPane.showMessageDialog(this, "Porfavor seleccione un elemento de la lista", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        modelo.addElement((Plato)selection);
-        platosTemp.push_back(selection);
-        jl_orden.setModel(modelo);
+        
+        
     }//GEN-LAST:event_cmd_agregarPlatoOrdenMouseClicked
 
     private void jl_ordenKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jl_ordenKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_DELETE || evt.getKeyCode() == KeyEvent.VK_BACK_SPACE){
             int index = jl_orden.getSelectedIndex();
-            DefaultListModel modelo = (DefaultListModel)jl_orden.getModel();
-            modelo.remove(index);
-            jl_orden.setModel(modelo);
+            if (index!=-1){
+                DefaultListModel modelo = (DefaultListModel)jl_orden.getModel();
+                modelo.remove(index);
+                jl_orden.setModel(modelo);
+            }else{
+                JOptionPane.showMessageDialog(this, "Porvafor seleccione un elemento de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+                
         }
     }//GEN-LAST:event_jl_ordenKeyPressed
 
@@ -1286,6 +1315,14 @@ public class StartScreen extends javax.swing.JFrame {
         jd_order.dispose();
        this.setVisible(true);
     }//GEN-LAST:event_jd_orderWindowClosing
+
+    private void cmd_ordenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_ordenarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmd_ordenarActionPerformed
+
+    private void cmd_agregarPlatoOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_agregarPlatoOrdenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmd_agregarPlatoOrdenActionPerformed
 
     /**
      * @param args the command line arguments
