@@ -119,6 +119,16 @@ public class StartScreen extends javax.swing.JFrame {
         tf_numOrden = new javax.swing.JTextField();
         tf_nombre_cliente = new javax.swing.JTextField();
         jd_rrhh = new javax.swing.JDialog();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel24 = new javax.swing.JLabel();
+        jl_cocineros = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        js_hire = new javax.swing.JSpinner();
+        js_fire = new javax.swing.JSpinner();
+        cmd_hire = new javax.swing.JButton();
+        cmd_fire = new javax.swing.JButton();
         jd_cierre = new javax.swing.JDialog();
         panel_buttons = new javax.swing.JPanel();
         cmd_menu = new javax.swing.JButton();
@@ -756,15 +766,80 @@ public class StartScreen extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Número de orden", "Progress", "Remaining"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane10.setViewportView(jTable1);
+
+        jLabel24.setText("Número de cocineros:");
+
+        jLabel25.setText("Contratar:");
+
+        jLabel26.setText("Despedir:");
+
+        cmd_hire.setText("Contratar");
+
+        cmd_fire.setText("Despedir");
+
         javax.swing.GroupLayout jd_rrhhLayout = new javax.swing.GroupLayout(jd_rrhh.getContentPane());
         jd_rrhh.getContentPane().setLayout(jd_rrhhLayout);
         jd_rrhhLayout.setHorizontalGroup(
             jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_rrhhLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_rrhhLayout.createSequentialGroup()
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 2, Short.MAX_VALUE))
+                    .addGroup(jd_rrhhLayout.createSequentialGroup()
+                        .addGroup(jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel26))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jl_cocineros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(js_hire, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                            .addComponent(js_fire))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmd_hire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmd_fire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         jd_rrhhLayout.setVerticalGroup(
             jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_rrhhLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jl_cocineros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(js_hire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmd_hire))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(js_fire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmd_fire))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jd_cierreLayout = new javax.swing.GroupLayout(jd_cierre.getContentPane());
@@ -1313,6 +1388,8 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JButton btn_guardarCambiosPlatos;
     private javax.swing.JButton cmd_agregarPlatoOrden;
     private javax.swing.JButton cmd_cierre;
+    private javax.swing.JButton cmd_fire;
+    private javax.swing.JButton cmd_hire;
     private javax.swing.JButton cmd_ingredients;
     private javax.swing.JButton cmd_menu;
     private javax.swing.JButton cmd_ordenar;
@@ -1336,6 +1413,9 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1345,6 +1425,7 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1353,16 +1434,20 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTable jTable1;
     private javax.swing.JComboBox jc_menu;
     private javax.swing.JDialog jd_cierre;
     private javax.swing.JDialog jd_ingredients;
     private javax.swing.JDialog jd_menu;
     private javax.swing.JDialog jd_order;
     private javax.swing.JDialog jd_rrhh;
+    private javax.swing.JLabel jl_cocineros;
     private javax.swing.JList jl_ingredientesPlato;
     private javax.swing.JList jl_ingredientesPlatoM;
     private javax.swing.JList jl_menu;
     private javax.swing.JList jl_orden;
+    private javax.swing.JSpinner js_fire;
+    private javax.swing.JSpinner js_hire;
     private javax.swing.JTextField jt_cantidadIngredientesPlato;
     private javax.swing.JTextField jt_cantidadIngredientesPlatoM;
     private javax.swing.JTextArea jt_descripcionPlato;
