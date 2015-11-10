@@ -27,6 +27,7 @@ public class StartScreen extends javax.swing.JFrame {
         for (int i = 0; i < 4; i++) {
             cocineros.queue(new Cocinero());
         }
+        admin.start();
         this.setLocationRelativeTo(null);        
     }
 
@@ -914,6 +915,11 @@ public class StartScreen extends javax.swing.JFrame {
         });
 
         cmd_cierre.setText("Cierre del día");
+        cmd_cierre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmd_cierreActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_buttonsLayout = new javax.swing.GroupLayout(panel_buttons);
         panel_buttons.setLayout(panel_buttonsLayout);
@@ -976,7 +982,8 @@ public class StartScreen extends javax.swing.JFrame {
         String nombre, medida, descripcion;
         double cantidad;
 
-        if(tf_nombreIngrediente.getText() != null && tf_medida_ingrediente.getText() != null && (Double)sp_cantidadIngrediente.getValue() >= 0 && ta_descripcion_ingredientes.getText() != null){        
+        if(tf_nombreIngrediente.getText() != null && tf_medida_ingrediente.getText() != null 
+                && (Double)sp_cantidadIngrediente.getValue() >= 0 && ta_descripcion_ingredientes.getText() != null){        
             nombre = tf_nombreIngrediente.getText();
             tf_nombreIngrediente.setText("");
             medida = tf_medida_ingrediente.getText();
@@ -1411,6 +1418,10 @@ public class StartScreen extends javax.swing.JFrame {
         sp_fire.setModel(fire);
     }//GEN-LAST:event_cmd_fireMouseClicked
 
+    private void cmd_cierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_cierreActionPerformed
+        admin.setCierre(true);
+    }//GEN-LAST:event_cmd_cierreActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1614,4 +1625,7 @@ public class StartScreen extends javax.swing.JFrame {
     private Queue cocineros = new Queue();
     private int menuIndex;
     private List trabajando = new List();
+    private List cocineros_ocupados = new List();
+    private List ordenes_tomadas = new List();
+    Manager admin = new Manager(false, ordenes, cocineros,almacen,cocineros_ocupados,ordenes_tomadas,jd_ingredients);
 }
