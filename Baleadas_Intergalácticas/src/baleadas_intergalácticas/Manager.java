@@ -21,6 +21,7 @@ public class Manager extends Thread{
         this.cocineros_ocupados = cocineros_ocupados;
         this.ordenes_tomadas = ordenes_tomadas;
         this.jd_ventana = jd_ventana;
+        submanager = new SubManager(cierre, cocineros_ocupados, cocineros);
     }
 
     public boolean isCierre() {
@@ -97,7 +98,7 @@ public class Manager extends Thread{
     private Queue cocineros;
     private List almacen;
     private List cocineros_ocupados;
-    private List ordenes_tomadas;//falta dequeue a la orden y mandarla a ordenes tomadas y asignarla a un cocinero
-    private SubManager submanager = new SubManager(cierre, cocineros_ocupados, cocineros);
+    private List ordenes_tomadas;
+    private SubManager submanager;
     javax.swing.JDialog jd_ventana;
 }

@@ -1075,6 +1075,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="jd_rrhh">
+      <Events>
+        <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="jd_rrhhWindowClosing"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">

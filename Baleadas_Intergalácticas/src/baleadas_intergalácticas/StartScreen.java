@@ -782,6 +782,12 @@ public class StartScreen extends javax.swing.JFrame {
                 .addGap(26, 26, 26))
         );
 
+        jd_rrhh.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                jd_rrhhWindowClosing(evt);
+            }
+        });
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1421,6 +1427,11 @@ public class StartScreen extends javax.swing.JFrame {
     private void cmd_cierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_cierreActionPerformed
         admin.setCierre(true);
     }//GEN-LAST:event_cmd_cierreActionPerformed
+
+    private void jd_rrhhWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jd_rrhhWindowClosing
+        jd_rrhh.dispose();
+        this.setVisible(true);
+    }//GEN-LAST:event_jd_rrhhWindowClosing
 
     /**
      * @param args the command line arguments
