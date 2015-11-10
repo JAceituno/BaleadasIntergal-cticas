@@ -9,6 +9,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,6 +24,9 @@ public class StartScreen extends javax.swing.JFrame {
      */
     public StartScreen() {
         initComponents();   
+        for (int i = 0; i < 4; i++) {
+            cocineros.queue(new Cocinero());
+        }
         this.setLocationRelativeTo(null);        
     }
 
@@ -126,8 +131,8 @@ public class StartScreen extends javax.swing.JFrame {
         jl_cocineros = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        js_hire = new javax.swing.JSpinner();
-        js_fire = new javax.swing.JSpinner();
+        sp_hire = new javax.swing.JSpinner();
+        sp_fire = new javax.swing.JSpinner();
         cmd_hire = new javax.swing.JButton();
         cmd_fire = new javax.swing.JButton();
         jd_cierre = new javax.swing.JDialog();
@@ -801,8 +806,18 @@ public class StartScreen extends javax.swing.JFrame {
         jLabel26.setText("Despedir:");
 
         cmd_hire.setText("Contratar");
+        cmd_hire.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmd_hireMouseClicked(evt);
+            }
+        });
 
         cmd_fire.setText("Despedir");
+        cmd_fire.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmd_fireMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_rrhhLayout = new javax.swing.GroupLayout(jd_rrhh.getContentPane());
         jd_rrhh.getContentPane().setLayout(jd_rrhhLayout);
@@ -822,8 +837,8 @@ public class StartScreen extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jl_cocineros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(js_hire, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                            .addComponent(js_fire))
+                            .addComponent(sp_hire, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                            .addComponent(sp_fire))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cmd_hire, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -840,12 +855,12 @@ public class StartScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(js_hire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sp_hire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmd_hire))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jd_rrhhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(js_fire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sp_fire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmd_fire))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -891,7 +906,12 @@ public class StartScreen extends javax.swing.JFrame {
             }
         });
 
-        cmd_rrhh.setText("RRHH");
+        cmd_rrhh.setText("Cocina");
+        cmd_rrhh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmd_rrhhMouseClicked(evt);
+            }
+        });
 
         cmd_cierre.setText("Cierre del día");
 
@@ -1323,8 +1343,73 @@ public class StartScreen extends javax.swing.JFrame {
 
     private void jd_orderWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jd_orderWindowClosing
         jd_order.dispose();
-       this.setVisible(true);
+        this.setVisible(true);
     }//GEN-LAST:event_jd_orderWindowClosing
+
+    private void cmd_rrhhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_rrhhMouseClicked
+        this.setVisible(false);
+        jl_cocineros.setText(Integer.toString(cocineros.size()+trabajando.size()));
+
+        SpinnerNumberModel hire = new SpinnerNumberModel();
+        hire.setValue(0);
+        hire.setMaximum(20-cocineros.size()-trabajando.size());
+        hire.setMinimum(0);
+        hire.setStepSize(1);
+        sp_hire.setModel(hire);
+        
+        SpinnerNumberModel fire = new SpinnerNumberModel();
+        fire.setValue(0);
+        fire.setMaximum(cocineros.size()-1);
+        fire.setMinimum(0);
+        fire.setStepSize(1);
+        sp_fire.setModel(fire);
+        
+        openDialog(jd_rrhh);
+    }//GEN-LAST:event_cmd_rrhhMouseClicked
+
+    private void cmd_hireMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_hireMouseClicked
+        int iteraciones = (Integer)sp_hire.getValue();
+        for (int i = 0; i < iteraciones; i++) {
+            cocineros.queue(new Cocinero());
+        }
+        jl_cocineros.setText(Integer.toString(cocineros.size()+trabajando.size()));
+
+        SpinnerNumberModel hire = new SpinnerNumberModel();
+        hire.setValue(0);
+        hire.setMaximum(20-cocineros.size()-trabajando.size());
+        hire.setMinimum(0);
+        hire.setStepSize(1);
+        sp_hire.setModel(hire);
+        
+        SpinnerNumberModel fire = new SpinnerNumberModel();
+        fire.setValue(0);
+        fire.setMaximum(cocineros.size()-1);
+        fire.setMinimum(0);
+        fire.setStepSize(1);
+        sp_fire.setModel(fire);
+    }//GEN-LAST:event_cmd_hireMouseClicked
+
+    private void cmd_fireMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_fireMouseClicked
+        int iteraciones = (Integer)sp_fire.getValue();
+        for (int i = 0; i < iteraciones; i++) {
+            cocineros.dequeue();
+        }
+        jl_cocineros.setText(Integer.toString(cocineros.size()+trabajando.size()));
+
+        SpinnerNumberModel hire = new SpinnerNumberModel();
+        hire.setValue(0);
+        hire.setMaximum(20-cocineros.size()-trabajando.size());
+        hire.setMinimum(0);
+        hire.setStepSize(1);
+        sp_hire.setModel(hire);
+        
+        SpinnerNumberModel fire = new SpinnerNumberModel();
+        fire.setValue(0);
+        fire.setMaximum(cocineros.size()-1);
+        fire.setMinimum(0);
+        fire.setStepSize(1);
+        sp_fire.setModel(fire);
+    }//GEN-LAST:event_cmd_fireMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1486,8 +1571,6 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JList jl_ingredientesPlatoM;
     private javax.swing.JList jl_menu;
     private javax.swing.JList jl_orden;
-    private javax.swing.JSpinner js_fire;
-    private javax.swing.JSpinner js_hire;
     private javax.swing.JTextField jt_cantidadIngredientesPlato;
     private javax.swing.JTextField jt_cantidadIngredientesPlatoM;
     private javax.swing.JTextArea jt_descripcionPlato;
@@ -1514,6 +1597,8 @@ public class StartScreen extends javax.swing.JFrame {
     private javax.swing.JPanel pane_lista_ordenes;
     private javax.swing.JPanel panel_buttons;
     private javax.swing.JSpinner sp_cantidadIngrediente;
+    private javax.swing.JSpinner sp_fire;
+    private javax.swing.JSpinner sp_hire;
     private javax.swing.JTextArea ta_descripcion_ingredientes;
     private javax.swing.JTextField tf_medida_ingrediente;
     private javax.swing.JTextField tf_nombreIngrediente;
@@ -1528,5 +1613,5 @@ public class StartScreen extends javax.swing.JFrame {
     private Queue ordenes = new Queue();
     private Queue cocineros = new Queue();
     private int menuIndex;
-
+    private List trabajando = new List();
 }

@@ -1095,8 +1095,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jl_cocineros" max="32767" attributes="0"/>
-                              <Component id="js_hire" alignment="0" pref="47" max="32767" attributes="0"/>
-                              <Component id="js_fire" alignment="0" max="32767" attributes="0"/>
+                              <Component id="sp_hire" alignment="0" pref="47" max="32767" attributes="0"/>
+                              <Component id="sp_fire" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1120,13 +1120,13 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="js_hire" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="sp_hire" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cmd_hire" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="js_fire" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="sp_fire" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cmd_fire" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -1174,19 +1174,25 @@
             <Property name="text" type="java.lang.String" value="Despedir:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="js_hire">
+        <Component class="javax.swing.JSpinner" name="sp_hire">
         </Component>
-        <Component class="javax.swing.JSpinner" name="js_fire">
+        <Component class="javax.swing.JSpinner" name="sp_fire">
         </Component>
         <Component class="javax.swing.JButton" name="cmd_hire">
           <Properties>
             <Property name="text" type="java.lang.String" value="Contratar"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmd_hireMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="cmd_fire">
           <Properties>
             <Property name="text" type="java.lang.String" value="Despedir"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmd_fireMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -1308,8 +1314,11 @@
         </Component>
         <Component class="javax.swing.JButton" name="cmd_rrhh">
           <Properties>
-            <Property name="text" type="java.lang.String" value="RRHH"/>
+            <Property name="text" type="java.lang.String" value="Cocina"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cmd_rrhhMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="cmd_cierre">
           <Properties>
