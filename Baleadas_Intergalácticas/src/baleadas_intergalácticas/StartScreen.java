@@ -1425,7 +1425,13 @@ public class StartScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_cmd_fireMouseClicked
 
     private void cmd_cierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_cierreActionPerformed
-        admin.setCierre(true);
+        if (admin.getCierre()){
+            JOptionPane.showMessageDialog(this, "Las operaciones ya han concluido","Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(this, "Las operaciones han concluido correctamente","Fin de Threads", JOptionPane.INFORMATION_MESSAGE);
+            admin.setCierre(true);
+        }
+        
     }//GEN-LAST:event_cmd_cierreActionPerformed
 
     private void jd_rrhhWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jd_rrhhWindowClosing

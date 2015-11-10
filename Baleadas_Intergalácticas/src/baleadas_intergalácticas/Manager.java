@@ -32,6 +32,10 @@ public class Manager extends Thread{
         submanager.setCierre(cierre);
         this.cierre = cierre;
     }
+    
+    public boolean getCierre(){
+        return this.cierre;
+    }
 
     @Override
     public void run() {
